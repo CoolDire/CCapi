@@ -84,14 +84,6 @@ namespace CCapi {
             tbID.Text = result.Get("id");
             DateTime registered = Constants.Epoch.AddSeconds(double.Parse(result.Get("registered"))).ToLocalTime();
             tbRegistered.Text = registered.ToLongDateString() + " at " + registered.ToShortTimeString();
-            DateTime dateregistered = registered;
-            DateTime now = DateTime.Now;
-            TimeSpan playedsince = now - dateregistered;
-            double age = playedsince.TotalDays;
-            double accageyrs = (int)age / 365;
-            double accagemths = (((int)age / 365) * 12) / 12;
-            tbUserFor.Text = accageyrs + " years, " + accagemths + " months";
-
             string flagsResult = result.Get("flags");
             string flags = "ClassiCube User, ";
             
@@ -102,7 +94,7 @@ namespace CCapi {
             tbFlags.Text = flags.Remove(flags.Length - 2, 2);
             pictureBox1.Image = getAvatar(result.Get("username"));
         }
-        
+
         JsonObject GetUserData(string apiPoint) {
             try {
                 string raw = new WebClient().DownloadString("https://www.classicube.net/api/" + apiPoint);
@@ -170,19 +162,19 @@ namespace CCapi {
 
         public List<ccServer> GetPublicServers() {
             List<ccServer> servers = new List<ccServer>();
-            string response = new WebClient().DownloadString("http://www.classicube.net/api/servers");
+            string response = new WebClient().DownloadString("https://www.classicube.net/api/servers");
             int index = 0; bool success = true;
             Dictionary<string, object> root =
                 (Dictionary<string, object>)Json.ParseValue(response, ref index, ref success);
             List<object> list = (List<object>)root["servers"];
 
-            foreach (object server in list) {
+            foreach (object server in list){
                 Dictionary<string, object> pairs = (Dictionary<string, object>)server;
                 servers.Add(new ccServer(
                     (string)pairs["hash"], (string)pairs["name"],
                     (string)pairs["players"], (string)pairs["maxplayers"],
                      (string)pairs["uptime"], (string)pairs["software"],
-                    (string)pairs["country_abbr"]));
+                    (string)pairs["country_abbr"], (bool)pairs["featured"]));
             }
             return servers;    
         }
@@ -196,6 +188,7 @@ namespace CCapi {
             tbSoftware.Text = servers[cbServer.SelectedIndex].Software;
             tbHash.Text = servers[cbServer.SelectedIndex].Hash;
             tbCountry.Text = servers[cbServer.SelectedIndex].Country;
+            tbFeatured.Text = servers[cbServer.SelectedIndex].Featured.ToString();
             return;
         }
         private string timeToString(TimeSpan span) {
@@ -236,8 +229,9 @@ namespace CCapi {
         public string Software { get; set; }
         public string Uptime { get; set; }
         public string Country { get; set; }
+        public bool Featured { get; set; }
 
-        public ccServer(string hash, string name, string players, string maxPlayers, string uptime, string software, string country_abbr) {
+        public ccServer(string hash, string name, string players, string maxPlayers, string uptime, string software, string country_abbr, bool featured) {
             Hash = hash;
             Name = name;
             Players = players;
@@ -245,6 +239,7 @@ namespace CCapi {
             Uptime = uptime;
             Software = software;
             Country = country_abbr;
+            Featured = featured;
         }
     }
     #endregion

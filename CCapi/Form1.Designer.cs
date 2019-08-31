@@ -36,8 +36,6 @@
             this.btnRefreshSkin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbUserFor = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.bRawPlayer = new System.Windows.Forms.Button();
             this.lRegistered = new System.Windows.Forms.Label();
             this.lID = new System.Windows.Forms.Label();
@@ -59,6 +57,8 @@
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.bRefreshLast5 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tbCountry = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.bOpenHash = new System.Windows.Forms.Button();
             this.lHash = new System.Windows.Forms.Label();
             this.tbHash = new System.Windows.Forms.TextBox();
@@ -75,8 +75,10 @@
             this.bRefreshServers = new System.Windows.Forms.Button();
             this.cbServer = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbCountry = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbFeatured = new System.Windows.Forms.TextBox();
             this.tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -116,6 +118,8 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.label5);
             this.groupBox6.Controls.Add(this.tbAccSinceExclDel);
             this.groupBox6.Controls.Add(this.label3);
             this.groupBox6.Controls.Add(this.tbAccSince);
@@ -129,7 +133,7 @@
             // 
             // tbAccSinceExclDel
             // 
-            this.tbAccSinceExclDel.Location = new System.Drawing.Point(274, 43);
+            this.tbAccSinceExclDel.Location = new System.Drawing.Point(319, 46);
             this.tbAccSinceExclDel.Name = "tbAccSinceExclDel";
             this.tbAccSinceExclDel.ReadOnly = true;
             this.tbAccSinceExclDel.Size = new System.Drawing.Size(100, 22);
@@ -140,9 +144,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(15, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(253, 13);
+            this.label3.Size = new System.Drawing.Size(303, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Accounts registered since this user excl Deleted:";
+            this.label3.Text = "Accounts registered since this user excl Deleted Accounts:";
             // 
             // tbAccSince
             // 
@@ -193,8 +197,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.tbUserFor);
-            this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.bRawPlayer);
             this.groupBox3.Controls.Add(this.lRegistered);
             this.groupBox3.Controls.Add(this.lID);
@@ -207,27 +209,10 @@
             this.groupBox3.Controls.Add(this.tBSearch);
             this.groupBox3.Location = new System.Drawing.Point(215, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(225, 216);
+            this.groupBox3.Size = new System.Drawing.Size(225, 175);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Account Info";
-            // 
-            // tbUserFor
-            // 
-            this.tbUserFor.Location = new System.Drawing.Point(9, 181);
-            this.tbUserFor.Name = "tbUserFor";
-            this.tbUserFor.ReadOnly = true;
-            this.tbUserFor.Size = new System.Drawing.Size(159, 22);
-            this.tbUserFor.TabIndex = 34;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 165);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 13);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Classicube User for:";
             // 
             // bRawPlayer
             // 
@@ -427,6 +412,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.tbFeatured);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.tbCountry);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.bOpenHash);
@@ -451,6 +438,22 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Servers";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tbCountry
+            // 
+            this.tbCountry.Location = new System.Drawing.Point(9, 211);
+            this.tbCountry.Name = "tbCountry";
+            this.tbCountry.Size = new System.Drawing.Size(129, 22);
+            this.tbCountry.TabIndex = 28;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 195);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Country";
             // 
             // bOpenHash
             // 
@@ -592,21 +595,39 @@
             this.cbServer.TabIndex = 0;
             this.cbServer.SelectedIndexChanged += new System.EventHandler(this.cbServer_SelectedIndexChanged);
             // 
-            // label4
+            // label5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 204);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "Country";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(316, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Accounts";
             // 
-            // tbCountry
+            // label6
             // 
-            this.tbCountry.Location = new System.Drawing.Point(9, 220);
-            this.tbCountry.Name = "tbCountry";
-            this.tbCountry.Size = new System.Drawing.Size(129, 22);
-            this.tbCountry.TabIndex = 28;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(425, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Accounts";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 251);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Featured";
+            // 
+            // tbFeatured
+            // 
+            this.tbFeatured.Location = new System.Drawing.Point(9, 267);
+            this.tbFeatured.Name = "tbFeatured";
+            this.tbFeatured.Size = new System.Drawing.Size(129, 22);
+            this.tbFeatured.TabIndex = 30;
             // 
             // Form1
             // 
@@ -689,10 +710,12 @@
         private System.Windows.Forms.TextBox tbTotalexdel;
         private System.Windows.Forms.TextBox tbAccSinceExclDel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbUserFor;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbCountry;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbFeatured;
+        private System.Windows.Forms.Label label7;
     }
 }
 
