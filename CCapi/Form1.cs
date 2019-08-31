@@ -237,7 +237,7 @@ namespace CCapi {
         public string Uptime { get; set; }
         public string Country { get; set; }
 
-        public ccServer(string hash, string name, string players, string maxPlayers, string uptime, string software) {
+        public ccServer(string hash, string name, string players, string maxPlayers, string uptime, string software, string country_abbr) {
             Hash = hash;
             Name = name;
             Players = players;
