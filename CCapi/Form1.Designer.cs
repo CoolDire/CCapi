@@ -27,8 +27,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.tbAccSince = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRefreshSkin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bRawPlayer = new System.Windows.Forms.Button();
@@ -44,44 +47,47 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbFlags = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbTotalexdel = new System.Windows.Forms.TextBox();
             this.bRawLast5 = new System.Windows.Forms.Button();
             this.tbLast5 = new System.Windows.Forms.TextBox();
             this.lTotal = new System.Windows.Forms.Label();
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.bRefreshLast5 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.tbFeatured = new System.Windows.Forms.TextBox();
-            this.lFeatured = new System.Windows.Forms.Label();
-            this.tbCountry = new System.Windows.Forms.TextBox();
-            this.lCountry = new System.Windows.Forms.Label();
-            this.tbUptime = new System.Windows.Forms.TextBox();
-            this.lUptime = new System.Windows.Forms.Label();
-            this.bRefreshServers = new System.Windows.Forms.Button();
-            this.bRawServer = new System.Windows.Forms.Button();
             this.bOpenHash = new System.Windows.Forms.Button();
-            this.tbSoftware = new System.Windows.Forms.TextBox();
             this.lHash = new System.Windows.Forms.Label();
-            this.lSoftware = new System.Windows.Forms.Label();
             this.tbHash = new System.Windows.Forms.TextBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.cbServer = new System.Windows.Forms.ComboBox();
-            this.lPlayers = new System.Windows.Forms.Label();
-            this.tbPlayers = new System.Windows.Forms.TextBox();
+            this.bRawServer = new System.Windows.Forms.Button();
             this.lof = new System.Windows.Forms.Label();
-            this.txMaxPlayers = new System.Windows.Forms.TextBox();
+            this.lPlayers = new System.Windows.Forms.Label();
+            this.lSoftware = new System.Windows.Forms.Label();
+            this.lUptime = new System.Windows.Forms.Label();
             this.lServer = new System.Windows.Forms.Label();
+            this.txMaxPlayers = new System.Windows.Forms.TextBox();
+            this.tbSoftware = new System.Windows.Forms.TextBox();
+            this.tbUptime = new System.Windows.Forms.TextBox();
+            this.tbPlayers = new System.Windows.Forms.TextBox();
+            this.bRefreshServers = new System.Windows.Forms.Button();
+            this.cbServer = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbAccSinceExclDel = new System.Windows.Forms.TextBox();
+            this.tbTotalServers = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbActivePlayer = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbUserFor = new System.Windows.Forms.TextBox();
             this.tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -91,12 +97,13 @@
             this.tabs.Location = new System.Drawing.Point(4, 2);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(594, 290);
+            this.tabs.Size = new System.Drawing.Size(594, 438);
             this.tabs.TabIndex = 1;
             this.tabs.SelectedIndexChanged += new System.EventHandler(this.tabControl1_Change);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox6);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -104,14 +111,44 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(586, 264);
+            this.tabPage1.Size = new System.Drawing.Size(586, 412);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Players";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.tbAccSinceExclDel);
+            this.groupBox6.Controls.Add(this.label3);
+            this.groupBox6.Controls.Add(this.tbAccSince);
+            this.groupBox6.Controls.Add(this.label1);
+            this.groupBox6.Location = new System.Drawing.Point(9, 306);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(574, 90);
+            this.groupBox6.TabIndex = 28;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "User\'s Stats";
+            // 
+            // tbAccSince
+            // 
+            this.tbAccSince.Location = new System.Drawing.Point(209, 15);
+            this.tbAccSince.Name = "tbAccSince";
+            this.tbAccSince.ReadOnly = true;
+            this.tbAccSince.Size = new System.Drawing.Size(100, 22);
+            this.tbAccSince.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(188, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Accounts registered since this user:";
+            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.btnRefreshSkin);
             this.groupBox4.Controls.Add(this.pictureBox1);
             this.groupBox4.Location = new System.Drawing.Point(443, 6);
             this.groupBox4.Name = "groupBox4";
@@ -120,28 +157,29 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Skin";
             // 
-            // button1
+            // btnRefreshSkin
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(5, 146);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Refresh";
-            this.toolTip1.SetToolTip(this.button1, "Refresh the selected user\'s skin.");
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRefreshSkin.Enabled = false;
+            this.btnRefreshSkin.Location = new System.Drawing.Point(6, 146);
+            this.btnRefreshSkin.Name = "btnRefreshSkin";
+            this.btnRefreshSkin.Size = new System.Drawing.Size(127, 23);
+            this.btnRefreshSkin.TabIndex = 1;
+            this.btnRefreshSkin.Text = "Refresh";
+            this.toolTip1.SetToolTip(this.btnRefreshSkin, "Refresh the selected user\'s skin.");
+            this.btnRefreshSkin.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(5, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.tbUserFor);
+            this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.bRawPlayer);
             this.groupBox3.Controls.Add(this.lRegistered);
             this.groupBox3.Controls.Add(this.lID);
@@ -154,7 +192,7 @@
             this.groupBox3.Controls.Add(this.tBSearch);
             this.groupBox3.Location = new System.Drawing.Point(215, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(225, 175);
+            this.groupBox3.Size = new System.Drawing.Size(225, 216);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Account Info";
@@ -176,7 +214,7 @@
             this.lRegistered.AutoSize = true;
             this.lRegistered.Location = new System.Drawing.Point(6, 107);
             this.lRegistered.Name = "lRegistered";
-            this.lRegistered.Size = new System.Drawing.Size(61, 13);
+            this.lRegistered.Size = new System.Drawing.Size(65, 13);
             this.lRegistered.TabIndex = 31;
             this.lRegistered.Text = "Registered:";
             // 
@@ -194,13 +232,13 @@
             this.lUserName.AutoSize = true;
             this.lUserName.Location = new System.Drawing.Point(6, 50);
             this.lUserName.Name = "lUserName";
-            this.lUserName.Size = new System.Drawing.Size(58, 13);
+            this.lUserName.Size = new System.Drawing.Size(61, 13);
             this.lUserName.TabIndex = 29;
             this.lUserName.Text = "Username:";
             // 
             // bIDLookup
             // 
-            this.bIDLookup.Location = new System.Drawing.Point(190, 20);
+            this.bIDLookup.Location = new System.Drawing.Point(190, 21);
             this.bIDLookup.Name = "bIDLookup";
             this.bIDLookup.Size = new System.Drawing.Size(29, 23);
             this.bIDLookup.TabIndex = 28;
@@ -214,7 +252,7 @@
             this.tbUserName.Location = new System.Drawing.Point(6, 67);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.ReadOnly = true;
-            this.tbUserName.Size = new System.Drawing.Size(153, 20);
+            this.tbUserName.Size = new System.Drawing.Size(153, 22);
             this.tbUserName.TabIndex = 27;
             // 
             // tbRegistered
@@ -223,7 +261,7 @@
             this.tbRegistered.Multiline = true;
             this.tbRegistered.Name = "tbRegistered";
             this.tbRegistered.ReadOnly = true;
-            this.tbRegistered.Size = new System.Drawing.Size(213, 45);
+            this.tbRegistered.Size = new System.Drawing.Size(213, 34);
             this.tbRegistered.TabIndex = 26;
             // 
             // tbID
@@ -231,12 +269,12 @@
             this.tbID.Location = new System.Drawing.Point(165, 67);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(54, 20);
+            this.tbID.Size = new System.Drawing.Size(54, 22);
             this.tbID.TabIndex = 25;
             // 
             // bLookup
             // 
-            this.bLookup.Location = new System.Drawing.Point(130, 20);
+            this.bLookup.Location = new System.Drawing.Point(130, 21);
             this.bLookup.Name = "bLookup";
             this.bLookup.Size = new System.Drawing.Size(54, 23);
             this.bLookup.TabIndex = 24;
@@ -249,14 +287,14 @@
             // 
             this.tBSearch.Location = new System.Drawing.Point(6, 21);
             this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(118, 20);
+            this.tBSearch.Size = new System.Drawing.Size(118, 22);
             this.tBSearch.TabIndex = 23;
             this.tBSearch.Text = "Player Name/ID";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tbFlags);
-            this.groupBox2.Location = new System.Drawing.Point(6, 185);
+            this.groupBox2.Location = new System.Drawing.Point(9, 228);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(574, 72);
             this.groupBox2.TabIndex = 24;
@@ -274,6 +312,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.tbTotalexdel);
             this.groupBox1.Controls.Add(this.bRawLast5);
             this.groupBox1.Controls.Add(this.tbLast5);
             this.groupBox1.Controls.Add(this.lTotal);
@@ -281,10 +321,27 @@
             this.groupBox1.Controls.Add(this.bRefreshLast5);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(203, 175);
+            this.groupBox1.Size = new System.Drawing.Size(203, 216);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Last Five Accounts";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 161);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Total Accounts excl Deleted:";
+            // 
+            // tbTotalexdel
+            // 
+            this.tbTotalexdel.Location = new System.Drawing.Point(16, 177);
+            this.tbTotalexdel.Name = "tbTotalexdel";
+            this.tbTotalexdel.ReadOnly = true;
+            this.tbTotalexdel.Size = new System.Drawing.Size(94, 22);
+            this.tbTotalexdel.TabIndex = 10;
             // 
             // bRawLast5
             // 
@@ -311,18 +368,18 @@
             // lTotal
             // 
             this.lTotal.AutoSize = true;
-            this.lTotal.Location = new System.Drawing.Point(10, 143);
+            this.lTotal.Location = new System.Drawing.Point(13, 139);
             this.lTotal.Name = "lTotal";
-            this.lTotal.Size = new System.Drawing.Size(82, 13);
+            this.lTotal.Size = new System.Drawing.Size(84, 13);
             this.lTotal.TabIndex = 6;
             this.lTotal.Text = "Total Accounts:";
             // 
             // tbTotal
             // 
-            this.tbTotal.Location = new System.Drawing.Point(102, 139);
+            this.tbTotal.Location = new System.Drawing.Point(103, 136);
             this.tbTotal.Name = "tbTotal";
             this.tbTotal.ReadOnly = true;
-            this.tbTotal.Size = new System.Drawing.Size(94, 20);
+            this.tbTotal.Size = new System.Drawing.Size(94, 22);
             this.tbTotal.TabIndex = 0;
             // 
             // bRefreshLast5
@@ -338,235 +395,246 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox6);
-            this.tabPage2.Controls.Add(this.groupBox5);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.tbActivePlayer);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.tbTotalServers);
+            this.tabPage2.Controls.Add(this.bOpenHash);
+            this.tabPage2.Controls.Add(this.lHash);
+            this.tabPage2.Controls.Add(this.tbHash);
+            this.tabPage2.Controls.Add(this.bRawServer);
+            this.tabPage2.Controls.Add(this.lof);
+            this.tabPage2.Controls.Add(this.lPlayers);
+            this.tabPage2.Controls.Add(this.lSoftware);
+            this.tabPage2.Controls.Add(this.lUptime);
+            this.tabPage2.Controls.Add(this.lServer);
+            this.tabPage2.Controls.Add(this.txMaxPlayers);
+            this.tabPage2.Controls.Add(this.tbSoftware);
+            this.tabPage2.Controls.Add(this.tbUptime);
+            this.tabPage2.Controls.Add(this.tbPlayers);
+            this.tabPage2.Controls.Add(this.bRefreshServers);
+            this.tabPage2.Controls.Add(this.cbServer);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(586, 264);
+            this.tabPage2.Size = new System.Drawing.Size(586, 412);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Servers";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.tbFeatured);
-            this.groupBox6.Controls.Add(this.lFeatured);
-            this.groupBox6.Controls.Add(this.tbCountry);
-            this.groupBox6.Controls.Add(this.lCountry);
-            this.groupBox6.Controls.Add(this.tbUptime);
-            this.groupBox6.Controls.Add(this.lUptime);
-            this.groupBox6.Controls.Add(this.bRefreshServers);
-            this.groupBox6.Controls.Add(this.bRawServer);
-            this.groupBox6.Controls.Add(this.bOpenHash);
-            this.groupBox6.Controls.Add(this.tbSoftware);
-            this.groupBox6.Controls.Add(this.lHash);
-            this.groupBox6.Controls.Add(this.lSoftware);
-            this.groupBox6.Controls.Add(this.tbHash);
-            this.groupBox6.Location = new System.Drawing.Point(6, 82);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(574, 176);
-            this.groupBox6.TabIndex = 28;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Server Info";
-            // 
-            // tbFeatured
-            // 
-            this.tbFeatured.Enabled = false;
-            this.tbFeatured.Location = new System.Drawing.Point(391, 80);
-            this.tbFeatured.Name = "tbFeatured";
-            this.tbFeatured.ReadOnly = true;
-            this.tbFeatured.Size = new System.Drawing.Size(72, 20);
-            this.tbFeatured.TabIndex = 30;
-            // 
-            // lFeatured
-            // 
-            this.lFeatured.AutoSize = true;
-            this.lFeatured.Enabled = false;
-            this.lFeatured.Location = new System.Drawing.Point(393, 64);
-            this.lFeatured.Name = "lFeatured";
-            this.lFeatured.Size = new System.Drawing.Size(52, 13);
-            this.lFeatured.TabIndex = 29;
-            this.lFeatured.Text = "Featured:";
-            // 
-            // tbCountry
-            // 
-            this.tbCountry.Location = new System.Drawing.Point(391, 32);
-            this.tbCountry.Name = "tbCountry";
-            this.tbCountry.ReadOnly = true;
-            this.tbCountry.Size = new System.Drawing.Size(72, 20);
-            this.tbCountry.TabIndex = 28;
-            // 
-            // lCountry
-            // 
-            this.lCountry.AutoSize = true;
-            this.lCountry.Location = new System.Drawing.Point(393, 16);
-            this.lCountry.Name = "lCountry";
-            this.lCountry.Size = new System.Drawing.Size(46, 13);
-            this.lCountry.TabIndex = 27;
-            this.lCountry.Text = "Country:";
-            // 
-            // tbUptime
-            // 
-            this.tbUptime.Location = new System.Drawing.Point(6, 32);
-            this.tbUptime.Name = "tbUptime";
-            this.tbUptime.ReadOnly = true;
-            this.tbUptime.Size = new System.Drawing.Size(357, 20);
-            this.tbUptime.TabIndex = 9;
-            // 
-            // lUptime
-            // 
-            this.lUptime.AutoSize = true;
-            this.lUptime.Location = new System.Drawing.Point(6, 16);
-            this.lUptime.Name = "lUptime";
-            this.lUptime.Size = new System.Drawing.Size(43, 13);
-            this.lUptime.TabIndex = 16;
-            this.lUptime.Text = "Uptime:";
-            // 
-            // bRefreshServers
-            // 
-            this.bRefreshServers.Location = new System.Drawing.Point(506, 16);
-            this.bRefreshServers.Name = "bRefreshServers";
-            this.bRefreshServers.Size = new System.Drawing.Size(62, 23);
-            this.bRefreshServers.TabIndex = 1;
-            this.bRefreshServers.Text = "Refresh";
-            this.toolTip1.SetToolTip(this.bRefreshServers, "Refresh the selected server\'s statistics.");
-            this.bRefreshServers.UseVisualStyleBackColor = true;
-            this.bRefreshServers.Click += new System.EventHandler(this.bRefreshServers_Click);
-            // 
-            // bRawServer
-            // 
-            this.bRawServer.Location = new System.Drawing.Point(506, 64);
-            this.bRawServer.Margin = new System.Windows.Forms.Padding(2);
-            this.bRawServer.Name = "bRawServer";
-            this.bRawServer.Size = new System.Drawing.Size(62, 23);
-            this.bRawServer.TabIndex = 23;
-            this.bRawServer.Text = "Raw";
-            this.toolTip1.SetToolTip(this.bRawServer, "Open the list of servers in raw JSON.");
-            this.bRawServer.UseVisualStyleBackColor = true;
-            this.bRawServer.Click += new System.EventHandler(this.bRawServer_Click);
-            // 
             // bOpenHash
             // 
-            this.bOpenHash.Location = new System.Drawing.Point(506, 125);
+            this.bOpenHash.Location = new System.Drawing.Point(533, 160);
             this.bOpenHash.Margin = new System.Windows.Forms.Padding(2);
             this.bOpenHash.Name = "bOpenHash";
-            this.bOpenHash.Size = new System.Drawing.Size(62, 23);
+            this.bOpenHash.Size = new System.Drawing.Size(47, 23);
             this.bOpenHash.TabIndex = 26;
             this.bOpenHash.Text = "Play";
             this.toolTip1.SetToolTip(this.bOpenHash, "Join the selected server in your browser.");
             this.bOpenHash.UseVisualStyleBackColor = true;
             this.bOpenHash.Click += new System.EventHandler(this.bOpenHash_Click);
             // 
-            // tbSoftware
-            // 
-            this.tbSoftware.Location = new System.Drawing.Point(6, 80);
-            this.tbSoftware.Name = "tbSoftware";
-            this.tbSoftware.ReadOnly = true;
-            this.tbSoftware.Size = new System.Drawing.Size(357, 20);
-            this.tbSoftware.TabIndex = 11;
-            // 
             // lHash
             // 
             this.lHash.AutoSize = true;
-            this.lHash.Location = new System.Drawing.Point(6, 112);
+            this.lHash.Location = new System.Drawing.Point(6, 142);
             this.lHash.Name = "lHash";
-            this.lHash.Size = new System.Drawing.Size(58, 13);
+            this.lHash.Size = new System.Drawing.Size(56, 13);
             this.lHash.TabIndex = 25;
-            this.lHash.Text = "Play Hash:";
+            this.lHash.Text = "Play Hash";
+            // 
+            // tbHash
+            // 
+            this.tbHash.Location = new System.Drawing.Point(6, 161);
+            this.tbHash.Name = "tbHash";
+            this.tbHash.ReadOnly = true;
+            this.tbHash.Size = new System.Drawing.Size(522, 22);
+            this.tbHash.TabIndex = 24;
+            // 
+            // bRawServer
+            // 
+            this.bRawServer.Location = new System.Drawing.Point(9, 374);
+            this.bRawServer.Margin = new System.Windows.Forms.Padding(2);
+            this.bRawServer.Name = "bRawServer";
+            this.bRawServer.Size = new System.Drawing.Size(47, 23);
+            this.bRawServer.TabIndex = 23;
+            this.bRawServer.Text = "Raw";
+            this.toolTip1.SetToolTip(this.bRawServer, "Open the list of servers in raw JSON.");
+            this.bRawServer.UseVisualStyleBackColor = true;
+            this.bRawServer.Click += new System.EventHandler(this.bRawServer_Click);
+            // 
+            // lof
+            // 
+            this.lof.AutoSize = true;
+            this.lof.Location = new System.Drawing.Point(487, 28);
+            this.lof.Name = "lof";
+            this.lof.Size = new System.Drawing.Size(18, 13);
+            this.lof.TabIndex = 19;
+            this.lof.Text = "of";
+            // 
+            // lPlayers
+            // 
+            this.lPlayers.AutoSize = true;
+            this.lPlayers.Location = new System.Drawing.Point(408, 6);
+            this.lPlayers.Name = "lPlayers";
+            this.lPlayers.Size = new System.Drawing.Size(72, 13);
+            this.lPlayers.TabIndex = 18;
+            this.lPlayers.Text = "Player Count";
             // 
             // lSoftware
             // 
             this.lSoftware.AutoSize = true;
-            this.lSoftware.Location = new System.Drawing.Point(6, 64);
+            this.lSoftware.Location = new System.Drawing.Point(6, 100);
             this.lSoftware.Name = "lSoftware";
-            this.lSoftware.Size = new System.Drawing.Size(52, 13);
+            this.lSoftware.Size = new System.Drawing.Size(53, 13);
             this.lSoftware.TabIndex = 17;
-            this.lSoftware.Text = "Software:";
+            this.lSoftware.Text = "Software";
             // 
-            // tbHash
+            // lUptime
             // 
-            this.tbHash.Location = new System.Drawing.Point(6, 128);
-            this.tbHash.Name = "tbHash";
-            this.tbHash.ReadOnly = true;
-            this.tbHash.Size = new System.Drawing.Size(479, 20);
-            this.tbHash.TabIndex = 24;
+            this.lUptime.AutoSize = true;
+            this.lUptime.Location = new System.Drawing.Point(6, 58);
+            this.lUptime.Name = "lUptime";
+            this.lUptime.Size = new System.Drawing.Size(44, 13);
+            this.lUptime.TabIndex = 16;
+            this.lUptime.Text = "Uptime";
             // 
-            // groupBox5
+            // lServer
             // 
-            this.groupBox5.Controls.Add(this.cbServer);
-            this.groupBox5.Controls.Add(this.lPlayers);
-            this.groupBox5.Controls.Add(this.tbPlayers);
-            this.groupBox5.Controls.Add(this.lof);
-            this.groupBox5.Controls.Add(this.txMaxPlayers);
-            this.groupBox5.Controls.Add(this.lServer);
-            this.groupBox5.Location = new System.Drawing.Point(6, 6);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(574, 70);
-            this.groupBox5.TabIndex = 27;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Server";
+            this.lServer.AutoSize = true;
+            this.lServer.Location = new System.Drawing.Point(6, 6);
+            this.lServer.Name = "lServer";
+            this.lServer.Size = new System.Drawing.Size(38, 13);
+            this.lServer.TabIndex = 15;
+            this.lServer.Text = "Server";
+            // 
+            // txMaxPlayers
+            // 
+            this.txMaxPlayers.Location = new System.Drawing.Point(508, 25);
+            this.txMaxPlayers.Name = "txMaxPlayers";
+            this.txMaxPlayers.ReadOnly = true;
+            this.txMaxPlayers.Size = new System.Drawing.Size(72, 22);
+            this.txMaxPlayers.TabIndex = 13;
+            // 
+            // tbSoftware
+            // 
+            this.tbSoftware.Location = new System.Drawing.Point(6, 119);
+            this.tbSoftware.Name = "tbSoftware";
+            this.tbSoftware.ReadOnly = true;
+            this.tbSoftware.Size = new System.Drawing.Size(574, 22);
+            this.tbSoftware.TabIndex = 11;
+            // 
+            // tbUptime
+            // 
+            this.tbUptime.Location = new System.Drawing.Point(6, 77);
+            this.tbUptime.Name = "tbUptime";
+            this.tbUptime.ReadOnly = true;
+            this.tbUptime.Size = new System.Drawing.Size(574, 22);
+            this.tbUptime.TabIndex = 9;
+            // 
+            // tbPlayers
+            // 
+            this.tbPlayers.Location = new System.Drawing.Point(411, 25);
+            this.tbPlayers.Name = "tbPlayers";
+            this.tbPlayers.ReadOnly = true;
+            this.tbPlayers.Size = new System.Drawing.Size(72, 22);
+            this.tbPlayers.TabIndex = 5;
+            this.tbPlayers.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // bRefreshServers
+            // 
+            this.bRefreshServers.Location = new System.Drawing.Point(490, 374);
+            this.bRefreshServers.Name = "bRefreshServers";
+            this.bRefreshServers.Size = new System.Drawing.Size(75, 23);
+            this.bRefreshServers.TabIndex = 1;
+            this.bRefreshServers.Text = "Refresh";
+            this.toolTip1.SetToolTip(this.bRefreshServers, "Refresh the selected server\'s statistics.");
+            this.bRefreshServers.UseVisualStyleBackColor = true;
+            this.bRefreshServers.Click += new System.EventHandler(this.bRefreshServers_Click);
             // 
             // cbServer
             // 
             this.cbServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbServer.FormattingEnabled = true;
-            this.cbServer.Location = new System.Drawing.Point(9, 32);
+            this.cbServer.Location = new System.Drawing.Point(6, 25);
             this.cbServer.Name = "cbServer";
-            this.cbServer.Size = new System.Drawing.Size(354, 21);
+            this.cbServer.Size = new System.Drawing.Size(390, 21);
             this.cbServer.TabIndex = 0;
             this.cbServer.SelectedIndexChanged += new System.EventHandler(this.cbServer_SelectedIndexChanged);
             // 
-            // lPlayers
+            // label3
             // 
-            this.lPlayers.AutoSize = true;
-            this.lPlayers.Location = new System.Drawing.Point(393, 17);
-            this.lPlayers.Name = "lPlayers";
-            this.lPlayers.Size = new System.Drawing.Size(70, 13);
-            this.lPlayers.TabIndex = 18;
-            this.lPlayers.Text = "Player Count:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(253, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Accounts registered since this user excl Deleted:";
             // 
-            // tbPlayers
+            // tbAccSinceExclDel
             // 
-            this.tbPlayers.Location = new System.Drawing.Point(391, 33);
-            this.tbPlayers.Name = "tbPlayers";
-            this.tbPlayers.ReadOnly = true;
-            this.tbPlayers.Size = new System.Drawing.Size(72, 20);
-            this.tbPlayers.TabIndex = 5;
-            this.tbPlayers.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbAccSinceExclDel.Location = new System.Drawing.Point(274, 43);
+            this.tbAccSinceExclDel.Name = "tbAccSinceExclDel";
+            this.tbAccSinceExclDel.ReadOnly = true;
+            this.tbAccSinceExclDel.Size = new System.Drawing.Size(100, 22);
+            this.tbAccSinceExclDel.TabIndex = 3;
             // 
-            // lof
+            // tbTotalServers
             // 
-            this.lof.AutoSize = true;
-            this.lof.Location = new System.Drawing.Point(469, 36);
-            this.lof.Name = "lof";
-            this.lof.Size = new System.Drawing.Size(16, 13);
-            this.lof.TabIndex = 19;
-            this.lof.Text = "of";
+            this.tbTotalServers.Location = new System.Drawing.Point(285, 195);
+            this.tbTotalServers.Name = "tbTotalServers";
+            this.tbTotalServers.Size = new System.Drawing.Size(61, 22);
+            this.tbTotalServers.TabIndex = 27;
             // 
-            // txMaxPlayers
+            // label4
             // 
-            this.txMaxPlayers.Location = new System.Drawing.Point(488, 33);
-            this.txMaxPlayers.Name = "txMaxPlayers";
-            this.txMaxPlayers.ReadOnly = true;
-            this.txMaxPlayers.Size = new System.Drawing.Size(72, 20);
-            this.txMaxPlayers.TabIndex = 13;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(352, 198);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 13);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Total Number of Servers:";
             // 
-            // lServer
+            // tbActivePlayer
             // 
-            this.lServer.AutoSize = true;
-            this.lServer.Location = new System.Drawing.Point(6, 16);
-            this.lServer.Name = "lServer";
-            this.lServer.Size = new System.Drawing.Size(86, 13);
-            this.lServer.TabIndex = 15;
-            this.lServer.Text = "Selected Server:";
+            this.tbActivePlayer.Location = new System.Drawing.Point(103, 195);
+            this.tbActivePlayer.Name = "tbActivePlayer";
+            this.tbActivePlayer.Size = new System.Drawing.Size(67, 22);
+            this.tbActivePlayer.TabIndex = 29;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(176, 198);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 13);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "active players on";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 165);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(108, 13);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Classicube User for:";
+            // 
+            // tbUserFor
+            // 
+            this.tbUserFor.Location = new System.Drawing.Point(9, 181);
+            this.tbUserFor.Name = "tbUserFor";
+            this.tbUserFor.ReadOnly = true;
+            this.tbUserFor.Size = new System.Drawing.Size(159, 22);
+            this.tbUserFor.TabIndex = 34;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(600, 294);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(600, 452);
             this.Controls.Add(this.tabs);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -575,6 +643,8 @@
             this.Text = "ClassiCube API";
             this.tabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -584,10 +654,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -633,14 +700,21 @@
         private System.Windows.Forms.Button bLookup;
         private System.Windows.Forms.TextBox tBSearch;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRefreshSkin;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox tbFeatured;
-        private System.Windows.Forms.Label lFeatured;
-        private System.Windows.Forms.TextBox tbCountry;
-        private System.Windows.Forms.Label lCountry;
+        private System.Windows.Forms.TextBox tbAccSince;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbTotalexdel;
+        private System.Windows.Forms.TextBox tbAccSinceExclDel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbTotalServers;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbActivePlayer;
+        private System.Windows.Forms.TextBox tbUserFor;
+        private System.Windows.Forms.Label label6;
     }
 }
 
