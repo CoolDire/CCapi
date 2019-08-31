@@ -32,10 +32,11 @@ namespace CCapi {
             string name = tBSearch.Text;
             JsonObject result = null;
             string api;
-
+            
             if (function == 2) {
                 api = "id/";
-                if (!int.TryParse(name, out _)) {
+                int id;
+                if (!int.TryParse(name, out id)) {
                     MessageBox.Show("That is not a valid ID!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -69,10 +70,28 @@ namespace CCapi {
                     break;
             }
 
+            JsonObject pcount = null;
+            pcount = JsonObject.Parse((new WebClient()).DownloadString("https://www.classicube.net/api/players"));
+            int totalplayers = Int32.Parse(pcount.Get("playercount"));
+            int modifier = 173;
+            int realpcount = totalplayers + modifier;
+            int playerid = Int32.Parse(result.Get("id"));
+            int regsince = realpcount - playerid;
+            int regsinceexcldel = totalplayers - playerid;
+            tbAccSince.Text = regsince.ToString();
+            tbAccSinceExclDel.Text = regsinceexcldel.ToString();
             tbUserName.Text = result.Get("username");
             tbID.Text = result.Get("id");
             DateTime registered = Constants.Epoch.AddSeconds(double.Parse(result.Get("registered"))).ToLocalTime();
-            tbRegistered.Text = registered.ToLongDateString() + " at " + registered.ToLongTimeString();
+            tbRegistered.Text = registered.ToLongDateString() + " at " + registered.ToShortTimeString();
+            DateTime dateregistered = registered;
+            DateTime now = DateTime.Now;
+            TimeSpan playedsince = now - dateregistered;
+            double age = playedsince.TotalDays;
+            double accageyrs = (int)age / 365;
+            double accagemths = (((int)age / 365) * 12) / 12;
+            tbUserFor.Text = accageyrs + " years, " + accagemths + " months";
+
             string flagsResult = result.Get("flags");
             string flags = "ClassiCube User, ";
             
@@ -110,7 +129,11 @@ namespace CCapi {
             try {
                 result = JsonObject.Parse((new WebClient()).DownloadString("https://www.classicube.net/api/players"));
                 tbLast5.Text = nan.Replace(result.Get("lastfive"), "").Replace(",", Environment.NewLine);
-                tbTotal.Text = result.Get("playercount");
+                int plcount = Int32.Parse(result.Get("playercount"));
+                int modifier = 173;
+                int realpcount = plcount + modifier;
+                tbTotal.Text = realpcount.ToString();
+                tbTotalexdel.Text = result.Get("playercount");
             } catch {
                 MessageBox.Show("Failed to retrieve last five accounts. ClassiCube.net might be down!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -131,6 +154,17 @@ namespace CCapi {
         }
         private void bRefreshServers_Click(object sender, EventArgs e) {
             getServers();
+            tbTotalServers.Text = servers.Count().ToString();
+
+            for (int i = 0; i < servers.Count; i++)
+            {
+                int total = Int32.Parse(servers.Count.ToString());
+                int players = Int32.Parse(servers[i].Players);
+                //int totalplayers = players * total;
+                tbActivePlayer.Text = players.ToString();
+            }
+
+            
         }
         List<ccServer> servers;
         private void getServers() {
@@ -147,7 +181,7 @@ namespace CCapi {
 
         public List<ccServer> GetPublicServers() {
             List<ccServer> servers = new List<ccServer>();
-            string response = new WebClient().DownloadString("https://www.classicube.net/api/servers");
+            string response = new WebClient().DownloadString("http://www.classicube.net/api/servers");
             int index = 0; bool success = true;
             Dictionary<string, object> root =
                 (Dictionary<string, object>)Json.ParseValue(response, ref index, ref success);
@@ -158,18 +192,19 @@ namespace CCapi {
                 servers.Add(new ccServer(
                     (string)pairs["hash"], (string)pairs["name"],
                     (string)pairs["players"], (string)pairs["maxplayers"],
-                    (string)pairs["uptime"], (string)pairs["software"],
-                    (string)pairs["country_abbr"]));
+                    (string)pairs["uptime"], (string)pairs["software"]));
             }
-            return servers;
+            return servers;    
         }
+
+        
+
         private void getServerInfo() {
             tbPlayers.Text = servers[cbServer.SelectedIndex].Players;
             txMaxPlayers.Text = servers[cbServer.SelectedIndex].MaximumPlayers;
             tbUptime.Text = timeToString(TimeSpan.FromSeconds(double.Parse(servers[cbServer.SelectedIndex].Uptime)));
             tbSoftware.Text = servers[cbServer.SelectedIndex].Software;
             tbHash.Text = servers[cbServer.SelectedIndex].Hash;
-            tbCountry.Text = servers[cbServer.SelectedIndex].Country;
             return;
         }
         private string timeToString(TimeSpan span) {
@@ -187,19 +222,19 @@ namespace CCapi {
         }
 
         private void bRawLast5_Click(object sender, EventArgs e) {
-            System.Diagnostics.Process.Start("https://www.classicube.net/api/players");
+            System.Diagnostics.Process.Start("http://www.classicube.net/api/players");
         }
 
         private void bRawPlayer_Click(object sender, EventArgs e) {
-            System.Diagnostics.Process.Start("https://www.classicube.net/api/id/" + tbID.Text);
+            System.Diagnostics.Process.Start("http://www.classicube.net/api/id/" + tbID.Text);
         }
 
         private void bRawServer_Click(object sender, EventArgs e) {
-            System.Diagnostics.Process.Start("https://www.classicube.net/api/servers");
+            System.Diagnostics.Process.Start("http://www.classicube.net/api/servers");
         }
 
         private void bOpenHash_Click(object sender, EventArgs e) {
-            System.Diagnostics.Process.Start("https://www.classicube.net/server/play/" + servers[cbServer.SelectedIndex].Hash);
+            System.Diagnostics.Process.Start("http://www.classicube.net/server/play/" + servers[cbServer.SelectedIndex].Hash);
         }
     }
     public class ccServer {
@@ -209,16 +244,14 @@ namespace CCapi {
         public string Players { get; set; }
         public string Software { get; set; }
         public string Uptime { get; set; }
-        public string Country { get; set; }
 
-        public ccServer(string hash, string name, string players, string maxPlayers, string uptime, string software, string country_abbr) {
+        public ccServer(string hash, string name, string players, string maxPlayers, string uptime, string software) {
             Hash = hash;
             Name = name;
             Players = players;
             MaximumPlayers = maxPlayers;
             Uptime = uptime;
             Software = software;
-            Country = country_abbr;
         }
     }
     #endregion
