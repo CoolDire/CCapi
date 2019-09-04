@@ -679,7 +679,7 @@
             // 
             this.tbCountryFull.Location = new System.Drawing.Point(190, 212);
             this.tbCountryFull.Name = "tbCountryFull";
-            this.tbCountryFull.Size = new System.Drawing.Size(133, 22);
+            this.tbCountryFull.Size = new System.Drawing.Size(239, 22);
             this.tbCountryFull.TabIndex = 32;
             // 
             // Form1

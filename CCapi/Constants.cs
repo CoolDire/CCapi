@@ -21,10 +21,17 @@ namespace CCapi {
 
         public static Dictionary<string, string> Country
             = new Dictionary<string, string>() {
-                { "US", "United States" },
-                { "UK", "United Kingdom" },
+                { "AU", "Australia" },
+                { "CA", "Canada" },
+                { "ES", "Spain" },
+                { "DE", "Germany"},
                 { "FR", "France" },
-                { "DE", "Germany"}
+                { "GB", "United Kingdom/Great Britain" },
+                { "NZ", "New Zealand" },
+                { "PT", "Portugal" },
+                
+                { "US", "United States" }
+                
             };
         
     }
