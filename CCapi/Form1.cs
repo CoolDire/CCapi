@@ -28,6 +28,8 @@ namespace CCapi {
                 getPlayer(3);
             }
         }
+
+        // Gets a players info
         private void getPlayer(byte function) {
             string name = tBSearch.Text;
             JsonObject result = null;
@@ -85,16 +87,18 @@ namespace CCapi {
             DateTime registered = Constants.Epoch.AddSeconds(double.Parse(result.Get("registered"))).ToLocalTime();
             tbRegistered.Text = registered.ToLongDateString() + " at " + registered.ToShortTimeString();
             string flagsResult = result.Get("flags");
-            string flags = "ClassiCube User, ";
-            
+            string flags = "ClassiCube User - ";
+
             foreach (var kvp in Constants.UserFlags) {
                 if (flagsResult.IndexOf(kvp.Key) >= 0)
-                    flags += kvp.Value + ", ";
+                    flags += kvp.Value + " - ";
             }
             tbFlags.Text = flags.Remove(flags.Length - 2, 2);
             pictureBox1.Image = getAvatar(result.Get("username"));
+            rtbURaw.Text = result.Dump();
         }
 
+        // Gets User Data from the API
         JsonObject GetUserData(string apiPoint) {
             try {
                 string raw = new WebClient().DownloadString("https://www.classicube.net/api/" + apiPoint);
@@ -105,6 +109,7 @@ namespace CCapi {
             }
         }
         
+        // Gets the Users Avatar from the website
         private Image getAvatar(string name) {
             try {
                 Stream stream = new WebClient().OpenRead("https://www.classicube.net/face/" + name + ".png");
@@ -115,6 +120,7 @@ namespace CCapi {
             }
         }
 
+        // Gets the Last 5 Accounts registered
         private void getLastFive() {
             JsonObject result = null;
             Regex nan = new Regex("[^a-zA-Z0-9_.,]");
@@ -189,6 +195,17 @@ namespace CCapi {
             tbHash.Text = servers[cbServer.SelectedIndex].Hash;
             tbCountry.Text = servers[cbServer.SelectedIndex].Country;
             tbFeatured.Text = servers[cbServer.SelectedIndex].Featured.ToString();
+            rtbSRaw.Text = servers[cbServer.SelectedIndex].Dump();
+
+            string countryresult = servers[cbServer.SelectedIndex].Country;
+            string country = countryresult + " - ";
+
+            foreach (var kvp in Constants.Country)
+            {
+                if (countryresult.IndexOf(kvp.Key) >= 0)
+                    country += kvp.Value + " - ";
+            }
+            tbCountryFull.Text = country.Remove(country.Length - 2, 2);
             return;
         }
         private string timeToString(TimeSpan span) {
