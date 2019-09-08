@@ -59,6 +59,10 @@
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.bRefreshLast5 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbCountryFull = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tbFeatured = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbCountry = new System.Windows.Forms.TextBox();
@@ -79,11 +83,15 @@
             this.bRefreshServers = new System.Windows.Forms.Button();
             this.cbServer = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.rtbURaw = new System.Windows.Forms.RichTextBox();
+            this.llURaw = new System.Windows.Forms.LinkLabel();
+            this.llSRaw = new System.Windows.Forms.LinkLabel();
             this.rtbSRaw = new System.Windows.Forms.RichTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbCountryFull = new System.Windows.Forms.TextBox();
+            this.rtbURaw = new System.Windows.Forms.RichTextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.bFServers = new System.Windows.Forms.Button();
+            this.rtSList = new System.Windows.Forms.RichTextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tbFlagsRaw = new System.Windows.Forms.TextBox();
             this.tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -94,6 +102,7 @@
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -101,6 +110,7 @@
             this.tabs.Controls.Add(this.tabPage1);
             this.tabs.Controls.Add(this.tabPage2);
             this.tabs.Controls.Add(this.tabPage3);
+            this.tabs.Controls.Add(this.tabPage4);
             this.tabs.Location = new System.Drawing.Point(3, 2);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
@@ -131,7 +141,7 @@
             this.groupBox6.Controls.Add(this.label3);
             this.groupBox6.Controls.Add(this.tbAccSince);
             this.groupBox6.Controls.Add(this.label1);
-            this.groupBox6.Location = new System.Drawing.Point(9, 306);
+            this.groupBox6.Location = new System.Drawing.Point(9, 342);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(574, 90);
             this.groupBox6.TabIndex = 28;
@@ -335,10 +345,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbFlagsRaw);
             this.groupBox2.Controls.Add(this.tbFlags);
             this.groupBox2.Location = new System.Drawing.Point(9, 228);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(574, 72);
+            this.groupBox2.Size = new System.Drawing.Size(574, 108);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "User\'s Flag(s):";
@@ -349,7 +360,7 @@
             this.tbFlags.Multiline = true;
             this.tbFlags.Name = "tbFlags";
             this.tbFlags.ReadOnly = true;
-            this.tbFlags.Size = new System.Drawing.Size(561, 49);
+            this.tbFlags.Size = new System.Drawing.Size(561, 39);
             this.tbFlags.TabIndex = 9;
             // 
             // groupBox1
@@ -437,6 +448,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.tbName);
             this.tabPage2.Controls.Add(this.tbCountryFull);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.tbFeatured);
@@ -466,17 +479,52 @@
             this.tabPage2.Text = "Servers";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 62);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 13);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Server Name";
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(5, 78);
+            this.tbName.Name = "tbName";
+            this.tbName.ReadOnly = true;
+            this.tbName.Size = new System.Drawing.Size(560, 22);
+            this.tbName.TabIndex = 33;
+            // 
+            // tbCountryFull
+            // 
+            this.tbCountryFull.Location = new System.Drawing.Point(190, 241);
+            this.tbCountryFull.Name = "tbCountryFull";
+            this.tbCountryFull.ReadOnly = true;
+            this.tbCountryFull.Size = new System.Drawing.Size(239, 22);
+            this.tbCountryFull.TabIndex = 32;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(187, 225);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(102, 13);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "Country Full Name";
+            // 
             // tbFeatured
             // 
-            this.tbFeatured.Location = new System.Drawing.Point(9, 267);
+            this.tbFeatured.Location = new System.Drawing.Point(9, 293);
             this.tbFeatured.Name = "tbFeatured";
+            this.tbFeatured.ReadOnly = true;
             this.tbFeatured.Size = new System.Drawing.Size(129, 22);
             this.tbFeatured.TabIndex = 30;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 251);
+            this.label7.Location = new System.Drawing.Point(9, 277);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 29;
@@ -484,15 +532,16 @@
             // 
             // tbCountry
             // 
-            this.tbCountry.Location = new System.Drawing.Point(14, 212);
+            this.tbCountry.Location = new System.Drawing.Point(9, 241);
             this.tbCountry.Name = "tbCountry";
+            this.tbCountry.ReadOnly = true;
             this.tbCountry.Size = new System.Drawing.Size(129, 22);
             this.tbCountry.TabIndex = 28;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 195);
+            this.label4.Location = new System.Drawing.Point(9, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 27;
@@ -513,7 +562,7 @@
             // lHash
             // 
             this.lHash.AutoSize = true;
-            this.lHash.Location = new System.Drawing.Point(6, 142);
+            this.lHash.Location = new System.Drawing.Point(5, 184);
             this.lHash.Name = "lHash";
             this.lHash.Size = new System.Drawing.Size(56, 13);
             this.lHash.TabIndex = 25;
@@ -521,7 +570,7 @@
             // 
             // tbHash
             // 
-            this.tbHash.Location = new System.Drawing.Point(6, 161);
+            this.tbHash.Location = new System.Drawing.Point(6, 200);
             this.tbHash.Name = "tbHash";
             this.tbHash.ReadOnly = true;
             this.tbHash.Size = new System.Drawing.Size(522, 22);
@@ -560,7 +609,7 @@
             // lSoftware
             // 
             this.lSoftware.AutoSize = true;
-            this.lSoftware.Location = new System.Drawing.Point(6, 100);
+            this.lSoftware.Location = new System.Drawing.Point(5, 144);
             this.lSoftware.Name = "lSoftware";
             this.lSoftware.Size = new System.Drawing.Size(53, 13);
             this.lSoftware.TabIndex = 17;
@@ -569,7 +618,7 @@
             // lUptime
             // 
             this.lUptime.AutoSize = true;
-            this.lUptime.Location = new System.Drawing.Point(6, 58);
+            this.lUptime.Location = new System.Drawing.Point(6, 103);
             this.lUptime.Name = "lUptime";
             this.lUptime.Size = new System.Drawing.Size(44, 13);
             this.lUptime.TabIndex = 16;
@@ -594,7 +643,7 @@
             // 
             // tbSoftware
             // 
-            this.tbSoftware.Location = new System.Drawing.Point(6, 119);
+            this.tbSoftware.Location = new System.Drawing.Point(6, 160);
             this.tbSoftware.Name = "tbSoftware";
             this.tbSoftware.ReadOnly = true;
             this.tbSoftware.Size = new System.Drawing.Size(574, 22);
@@ -602,7 +651,7 @@
             // 
             // tbUptime
             // 
-            this.tbUptime.Location = new System.Drawing.Point(6, 77);
+            this.tbUptime.Location = new System.Drawing.Point(5, 119);
             this.tbUptime.Name = "tbUptime";
             this.tbUptime.ReadOnly = true;
             this.tbUptime.Size = new System.Drawing.Size(574, 22);
@@ -640,6 +689,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.llURaw);
+            this.tabPage3.Controls.Add(this.llSRaw);
             this.tabPage3.Controls.Add(this.rtbSRaw);
             this.tabPage3.Controls.Add(this.rtbURaw);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -650,37 +701,86 @@
             this.tabPage3.Text = "Raw Data";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // rtbURaw
+            // llURaw
             // 
-            this.rtbURaw.Location = new System.Drawing.Point(11, 258);
-            this.rtbURaw.Name = "rtbURaw";
-            this.rtbURaw.Size = new System.Drawing.Size(382, 191);
-            this.rtbURaw.TabIndex = 0;
-            this.rtbURaw.Text = "";
+            this.llURaw.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.llURaw.AutoSize = true;
+            this.llURaw.Location = new System.Drawing.Point(6, 418);
+            this.llURaw.Name = "llURaw";
+            this.llURaw.Size = new System.Drawing.Size(64, 13);
+            this.llURaw.TabIndex = 3;
+            this.llURaw.TabStop = true;
+            this.llURaw.Text = "Player Data";
+            this.llURaw.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlURaw_LinkClicked);
+            // 
+            // llSRaw
+            // 
+            this.llSRaw.AutoSize = true;
+            this.llSRaw.Location = new System.Drawing.Point(6, 186);
+            this.llSRaw.Name = "llSRaw";
+            this.llSRaw.Size = new System.Drawing.Size(65, 13);
+            this.llSRaw.TabIndex = 2;
+            this.llSRaw.TabStop = true;
+            this.llSRaw.Text = "Server Data";
+            this.llSRaw.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlSRaw_LinkClicked);
             // 
             // rtbSRaw
             // 
             this.rtbSRaw.Location = new System.Drawing.Point(6, 6);
             this.rtbSRaw.Name = "rtbSRaw";
-            this.rtbSRaw.Size = new System.Drawing.Size(387, 238);
+            this.rtbSRaw.ReadOnly = true;
+            this.rtbSRaw.Size = new System.Drawing.Size(387, 177);
             this.rtbSRaw.TabIndex = 1;
             this.rtbSRaw.Text = "";
             // 
-            // label8
+            // rtbURaw
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(187, 195);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 13);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "Country Full Name";
+            this.rtbURaw.Location = new System.Drawing.Point(6, 224);
+            this.rtbURaw.Name = "rtbURaw";
+            this.rtbURaw.ReadOnly = true;
+            this.rtbURaw.Size = new System.Drawing.Size(382, 191);
+            this.rtbURaw.TabIndex = 0;
+            this.rtbURaw.Text = "";
             // 
-            // tbCountryFull
+            // tabPage4
             // 
-            this.tbCountryFull.Location = new System.Drawing.Point(190, 212);
-            this.tbCountryFull.Name = "tbCountryFull";
-            this.tbCountryFull.Size = new System.Drawing.Size(239, 22);
-            this.tbCountryFull.TabIndex = 32;
+            this.tabPage4.Controls.Add(this.bFServers);
+            this.tabPage4.Controls.Add(this.rtSList);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(586, 475);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Servers List";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // bFServers
+            // 
+            this.bFServers.Location = new System.Drawing.Point(484, 19);
+            this.bFServers.Name = "bFServers";
+            this.bFServers.Size = new System.Drawing.Size(96, 23);
+            this.bFServers.TabIndex = 1;
+            this.bFServers.Text = "Fetch Servers";
+            this.bFServers.UseVisualStyleBackColor = true;
+            this.bFServers.Click += new System.EventHandler(this.BFServers_Click);
+            // 
+            // rtSList
+            // 
+            this.rtSList.Location = new System.Drawing.Point(22, 19);
+            this.rtSList.Name = "rtSList";
+            this.rtSList.ReadOnly = true;
+            this.rtSList.Size = new System.Drawing.Size(456, 378);
+            this.rtSList.TabIndex = 0;
+            this.rtSList.Text = "";
+            // 
+            // tbFlagsRaw
+            // 
+            this.tbFlagsRaw.Location = new System.Drawing.Point(6, 62);
+            this.tbFlagsRaw.Multiline = true;
+            this.tbFlagsRaw.Name = "tbFlagsRaw";
+            this.tbFlagsRaw.ReadOnly = true;
+            this.tbFlagsRaw.Size = new System.Drawing.Size(561, 40);
+            this.tbFlagsRaw.TabIndex = 10;
             // 
             // Form1
             // 
@@ -710,6 +810,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -775,6 +877,14 @@
         private System.Windows.Forms.RichTextBox rtbURaw;
         private System.Windows.Forms.TextBox tbCountryFull;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.LinkLabel llURaw;
+        private System.Windows.Forms.LinkLabel llSRaw;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.RichTextBox rtSList;
+        private System.Windows.Forms.Button bFServers;
+        private System.Windows.Forms.TextBox tbFlagsRaw;
     }
 }
 

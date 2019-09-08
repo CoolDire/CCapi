@@ -87,15 +87,18 @@ namespace CCapi {
             DateTime registered = Constants.Epoch.AddSeconds(double.Parse(result.Get("registered"))).ToLocalTime();
             tbRegistered.Text = registered.ToLongDateString() + " at " + registered.ToShortTimeString();
             string flagsResult = result.Get("flags");
-            string flags = "ClassiCube User - ";
+            string flags = "User - ";
+            string flagsraw = flagsResult + " - ";
 
             foreach (var kvp in Constants.UserFlags) {
                 if (flagsResult.IndexOf(kvp.Key) >= 0)
                     flags += kvp.Value + " - ";
             }
             tbFlags.Text = flags.Remove(flags.Length - 2, 2);
+            tbFlagsRaw.Text = flagsResult;
             pictureBox1.Image = getAvatar(result.Get("username"));
             rtbURaw.Text = result.Dump();
+            llURaw.Text = "Data for " + result.Get("username");
         }
 
         // Gets User Data from the API
@@ -136,6 +139,12 @@ namespace CCapi {
                 MessageBox.Show("Failed to retrieve last five accounts. ClassiCube.net might be down!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+        }
+
+        private void LlURaw_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string name = tBSearch.Text;
+            System.Diagnostics.Process.Start("https://www.classicube.net/api/player/" + name);
         }
         private void bRefreshLast5_Click(object sender, EventArgs e) {
             getLastFive();
@@ -188,6 +197,7 @@ namespace CCapi {
         
 
         private void getServerInfo() {
+            tbName.Text = servers[cbServer.SelectedIndex].Name;
             tbPlayers.Text = servers[cbServer.SelectedIndex].Players;
             txMaxPlayers.Text = servers[cbServer.SelectedIndex].MaximumPlayers;
             tbUptime.Text = timeToString(TimeSpan.FromSeconds(double.Parse(servers[cbServer.SelectedIndex].Uptime)));
@@ -196,6 +206,7 @@ namespace CCapi {
             tbCountry.Text = servers[cbServer.SelectedIndex].Country;
             tbFeatured.Text = servers[cbServer.SelectedIndex].Featured.ToString();
             rtbSRaw.Text = servers[cbServer.SelectedIndex].Dump();
+            llSRaw.Text = "Data for " + servers[cbServer.SelectedIndex].Name;
 
             string countryresult = servers[cbServer.SelectedIndex].Country;
             string country = countryresult + " - ";
@@ -236,6 +247,17 @@ namespace CCapi {
 
         private void bOpenHash_Click(object sender, EventArgs e) {
             System.Diagnostics.Process.Start("https://www.classicube.net/server/play/" + servers[cbServer.SelectedIndex].Hash);
+        }
+
+        private void LlSRaw_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        { 
+            string shash = tbHash.Text;
+            System.Diagnostics.Process.Start("https://www.classicube.net/api/server/" + shash);
+        }
+
+        private void BFServers_Click(object sender, EventArgs e)
+        {
+            rtSList.Text = servers.Dump();
         }
     }
     public class ccServer {

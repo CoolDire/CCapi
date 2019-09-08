@@ -11,12 +11,14 @@ namespace CCapi {
 
         public static Dictionary<char, string> UserFlags
             = new Dictionary<char, string>() {
-                { 'a', "Site/Forum Administrator" },
-                { 'b', "Banned from Forums" },
-                { 'd', "ClassiCube Developer" },
-                { 'e', "ClassiCube Blog Editor" },
-                { 'm', "Forum Moderator" },
-                { 'p', "ClassiCube Patron" }
+                { 'a', "Administrator" },
+                { 'b', "Banned" },
+                { 'd', "Developer" },
+                { 'e', "Editor" },
+                { 'm', "Moderator" },
+                { 'p', "Patron" },
+                { 'r', "Recovering Account" },
+                { 'u', "Unverified" }
             };
 
         public static Dictionary<string, string> Country
