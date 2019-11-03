@@ -31,9 +31,7 @@ namespace CCapi {
                 { "GB", "United Kingdom/Great Britain" },
                 { "NZ", "New Zealand" },
                 { "PT", "Portugal" },
-                
-                { "US", "United States" }
-                
+                { "US", "United States" }           
             };
         
     }

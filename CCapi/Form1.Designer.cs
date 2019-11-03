@@ -27,6 +27,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbTimeNow = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -34,10 +36,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbAccSince = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnRefreshSkin = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbESTRegistered = new System.Windows.Forms.TextBox();
+            this.bName = new System.Windows.Forms.Button();
+            this.tbAdjID = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.bRawPlayer = new System.Windows.Forms.Button();
             this.lRegistered = new System.Windows.Forms.Label();
             this.lID = new System.Windows.Forms.Label();
@@ -49,7 +52,21 @@
             this.bLookup = new System.Windows.Forms.Button();
             this.tBSearch = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bRefresh = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lbNotes = new System.Windows.Forms.ListBox();
+            this.cbRecover = new System.Windows.Forms.CheckBox();
+            this.cbPatron = new System.Windows.Forms.CheckBox();
+            this.cbBanned = new System.Windows.Forms.CheckBox();
+            this.cbPremium = new System.Windows.Forms.CheckBox();
+            this.cbEditor = new System.Windows.Forms.CheckBox();
+            this.cbDev = new System.Windows.Forms.CheckBox();
+            this.cbUnverified = new System.Windows.Forms.CheckBox();
+            this.cbMod = new System.Windows.Forms.CheckBox();
+            this.cbAdmin = new System.Windows.Forms.CheckBox();
+            this.tbFlagsRaw = new System.Windows.Forms.TextBox();
             this.tbFlags = new System.Windows.Forms.TextBox();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbTotalexdel = new System.Windows.Forms.TextBox();
@@ -58,6 +75,15 @@
             this.lTotal = new System.Windows.Forms.Label();
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.bRefreshLast5 = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnDload = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnDload2 = new System.Windows.Forms.Button();
+            this.btnRefreshSkin = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -87,51 +113,86 @@
             this.llSRaw = new System.Windows.Forms.LinkLabel();
             this.rtbSRaw = new System.Windows.Forms.RichTextBox();
             this.rtbURaw = new System.Windows.Forms.RichTextBox();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.serverstable = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.bFServers = new System.Windows.Forms.Button();
             this.rtSList = new System.Windows.Forms.RichTextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.tbFlagsRaw = new System.Windows.Forms.TextBox();
+            this.bDloadDefault = new System.Windows.Forms.Button();
             this.tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
             // 
             this.tabs.Controls.Add(this.tabPage1);
+            this.tabs.Controls.Add(this.tabPage7);
+            this.tabs.Controls.Add(this.tabPage5);
             this.tabs.Controls.Add(this.tabPage2);
             this.tabs.Controls.Add(this.tabPage3);
+            this.tabs.Controls.Add(this.tabPage6);
             this.tabs.Controls.Add(this.tabPage4);
-            this.tabs.Location = new System.Drawing.Point(3, 2);
+            this.tabs.Location = new System.Drawing.Point(12, 2);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(594, 501);
+            this.tabs.Size = new System.Drawing.Size(687, 498);
             this.tabs.TabIndex = 1;
             this.tabs.SelectedIndexChanged += new System.EventHandler(this.tabControl1_Change);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label12);
+            this.tabPage1.Controls.Add(this.tbTimeNow);
             this.tabPage1.Controls.Add(this.groupBox6);
-            this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(586, 475);
+            this.tabPage1.Size = new System.Drawing.Size(679, 472);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Players";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 340);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 13);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Current Time:";
+            // 
+            // tbTimeNow
+            // 
+            this.tbTimeNow.Location = new System.Drawing.Point(87, 331);
+            this.tbTimeNow.Multiline = true;
+            this.tbTimeNow.Name = "tbTimeNow";
+            this.tbTimeNow.Size = new System.Drawing.Size(127, 40);
+            this.tbTimeNow.TabIndex = 29;
             // 
             // groupBox6
             // 
@@ -141,9 +202,9 @@
             this.groupBox6.Controls.Add(this.label3);
             this.groupBox6.Controls.Add(this.tbAccSince);
             this.groupBox6.Controls.Add(this.label1);
-            this.groupBox6.Location = new System.Drawing.Point(9, 342);
+            this.groupBox6.Location = new System.Drawing.Point(12, 387);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(574, 90);
+            this.groupBox6.Size = new System.Drawing.Size(574, 79);
             this.groupBox6.TabIndex = 28;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "User\'s Stats";
@@ -168,6 +229,7 @@
             // 
             // tbAccSinceExclDel
             // 
+            this.tbAccSinceExclDel.BackColor = System.Drawing.Color.LightCoral;
             this.tbAccSinceExclDel.Location = new System.Drawing.Point(319, 46);
             this.tbAccSinceExclDel.Name = "tbAccSinceExclDel";
             this.tbAccSinceExclDel.ReadOnly = true;
@@ -200,38 +262,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Accounts registered since this user:";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnRefreshSkin);
-            this.groupBox4.Controls.Add(this.pictureBox1);
-            this.groupBox4.Location = new System.Drawing.Point(443, 6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(138, 175);
-            this.groupBox4.TabIndex = 26;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Skin";
-            // 
-            // btnRefreshSkin
-            // 
-            this.btnRefreshSkin.Enabled = false;
-            this.btnRefreshSkin.Location = new System.Drawing.Point(6, 146);
-            this.btnRefreshSkin.Name = "btnRefreshSkin";
-            this.btnRefreshSkin.Size = new System.Drawing.Size(127, 23);
-            this.btnRefreshSkin.TabIndex = 1;
-            this.btnRefreshSkin.Text = "Refresh";
-            this.toolTip1.SetToolTip(this.btnRefreshSkin, "Refresh the selected user\'s skin.");
-            this.btnRefreshSkin.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(5, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.tbESTRegistered);
+            this.groupBox3.Controls.Add(this.bName);
+            this.groupBox3.Controls.Add(this.tbAdjID);
+            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.bRawPlayer);
             this.groupBox3.Controls.Add(this.lRegistered);
             this.groupBox3.Controls.Add(this.lID);
@@ -242,16 +278,53 @@
             this.groupBox3.Controls.Add(this.tbID);
             this.groupBox3.Controls.Add(this.bLookup);
             this.groupBox3.Controls.Add(this.tBSearch);
-            this.groupBox3.Location = new System.Drawing.Point(215, 6);
+            this.groupBox3.Location = new System.Drawing.Point(12, 11);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(225, 175);
+            this.groupBox3.Size = new System.Drawing.Size(214, 314);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Account Info";
             // 
+            // tbESTRegistered
+            // 
+            this.tbESTRegistered.Location = new System.Drawing.Point(19, 199);
+            this.tbESTRegistered.Multiline = true;
+            this.tbESTRegistered.Name = "tbESTRegistered";
+            this.tbESTRegistered.ReadOnly = true;
+            this.tbESTRegistered.Size = new System.Drawing.Size(183, 56);
+            this.tbESTRegistered.TabIndex = 38;
+            // 
+            // bName
+            // 
+            this.bName.Location = new System.Drawing.Point(75, 51);
+            this.bName.Name = "bName";
+            this.bName.Size = new System.Drawing.Size(47, 23);
+            this.bName.TabIndex = 36;
+            this.bName.Text = "Name";
+            this.bName.UseVisualStyleBackColor = true;
+            this.bName.Click += new System.EventHandler(this.BName_Click);
+            // 
+            // tbAdjID
+            // 
+            this.tbAdjID.BackColor = System.Drawing.Color.LightCoral;
+            this.tbAdjID.Location = new System.Drawing.Point(15, 274);
+            this.tbAdjID.Name = "tbAdjID";
+            this.tbAdjID.ReadOnly = true;
+            this.tbAdjID.Size = new System.Drawing.Size(100, 22);
+            this.tbAdjID.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(16, 258);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(70, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Adjusted ID:";
+            // 
             // bRawPlayer
             // 
-            this.bRawPlayer.Location = new System.Drawing.Point(182, 97);
+            this.bRawPlayer.Location = new System.Drawing.Point(166, 272);
             this.bRawPlayer.Margin = new System.Windows.Forms.Padding(2);
             this.bRawPlayer.Name = "bRawPlayer";
             this.bRawPlayer.Size = new System.Drawing.Size(37, 23);
@@ -264,7 +337,7 @@
             // lRegistered
             // 
             this.lRegistered.AutoSize = true;
-            this.lRegistered.Location = new System.Drawing.Point(6, 107);
+            this.lRegistered.Location = new System.Drawing.Point(16, 118);
             this.lRegistered.Name = "lRegistered";
             this.lRegistered.Size = new System.Drawing.Size(65, 13);
             this.lRegistered.TabIndex = 31;
@@ -273,7 +346,7 @@
             // lID
             // 
             this.lID.AutoSize = true;
-            this.lID.Location = new System.Drawing.Point(166, 50);
+            this.lID.Location = new System.Drawing.Point(125, 77);
             this.lID.Name = "lID";
             this.lID.Size = new System.Drawing.Size(21, 13);
             this.lID.TabIndex = 30;
@@ -282,7 +355,7 @@
             // lUserName
             // 
             this.lUserName.AutoSize = true;
-            this.lUserName.Location = new System.Drawing.Point(6, 50);
+            this.lUserName.Location = new System.Drawing.Point(16, 77);
             this.lUserName.Name = "lUserName";
             this.lUserName.Size = new System.Drawing.Size(61, 13);
             this.lUserName.TabIndex = 29;
@@ -290,7 +363,7 @@
             // 
             // bIDLookup
             // 
-            this.bIDLookup.Location = new System.Drawing.Point(190, 21);
+            this.bIDLookup.Location = new System.Drawing.Point(128, 51);
             this.bIDLookup.Name = "bIDLookup";
             this.bIDLookup.Size = new System.Drawing.Size(29, 23);
             this.bIDLookup.TabIndex = 28;
@@ -301,24 +374,24 @@
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(6, 67);
+            this.tbUserName.Location = new System.Drawing.Point(18, 93);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.ReadOnly = true;
-            this.tbUserName.Size = new System.Drawing.Size(153, 22);
+            this.tbUserName.Size = new System.Drawing.Size(94, 22);
             this.tbUserName.TabIndex = 27;
             // 
             // tbRegistered
             // 
-            this.tbRegistered.Location = new System.Drawing.Point(6, 124);
+            this.tbRegistered.Location = new System.Drawing.Point(19, 138);
             this.tbRegistered.Multiline = true;
             this.tbRegistered.Name = "tbRegistered";
             this.tbRegistered.ReadOnly = true;
-            this.tbRegistered.Size = new System.Drawing.Size(213, 34);
+            this.tbRegistered.Size = new System.Drawing.Size(184, 50);
             this.tbRegistered.TabIndex = 26;
             // 
             // tbID
             // 
-            this.tbID.Location = new System.Drawing.Point(165, 67);
+            this.tbID.Location = new System.Drawing.Point(128, 93);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(54, 22);
@@ -326,7 +399,7 @@
             // 
             // bLookup
             // 
-            this.bLookup.Location = new System.Drawing.Point(130, 21);
+            this.bLookup.Location = new System.Drawing.Point(15, 51);
             this.bLookup.Name = "bLookup";
             this.bLookup.Size = new System.Drawing.Size(54, 23);
             this.bLookup.TabIndex = 24;
@@ -337,31 +410,178 @@
             // 
             // tBSearch
             // 
-            this.tBSearch.Location = new System.Drawing.Point(6, 21);
+            this.tBSearch.Location = new System.Drawing.Point(15, 23);
             this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(118, 22);
+            this.tBSearch.Size = new System.Drawing.Size(142, 22);
             this.tBSearch.TabIndex = 23;
-            this.tBSearch.Text = "Player Name/ID";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.bRefresh);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.lbNotes);
+            this.groupBox2.Controls.Add(this.cbRecover);
+            this.groupBox2.Controls.Add(this.cbPatron);
+            this.groupBox2.Controls.Add(this.cbBanned);
+            this.groupBox2.Controls.Add(this.cbPremium);
+            this.groupBox2.Controls.Add(this.cbEditor);
+            this.groupBox2.Controls.Add(this.cbDev);
+            this.groupBox2.Controls.Add(this.cbUnverified);
+            this.groupBox2.Controls.Add(this.cbMod);
+            this.groupBox2.Controls.Add(this.cbAdmin);
             this.groupBox2.Controls.Add(this.tbFlagsRaw);
             this.groupBox2.Controls.Add(this.tbFlags);
-            this.groupBox2.Location = new System.Drawing.Point(9, 228);
+            this.groupBox2.Location = new System.Drawing.Point(232, 11);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(574, 108);
+            this.groupBox2.Size = new System.Drawing.Size(442, 370);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "User\'s Flag(s):";
             // 
+            // bRefresh
+            // 
+            this.bRefresh.Location = new System.Drawing.Point(318, 15);
+            this.bRefresh.Name = "bRefresh";
+            this.bRefresh.Size = new System.Drawing.Size(117, 23);
+            this.bRefresh.TabIndex = 36;
+            this.bRefresh.Text = "Refresh UserData";
+            this.bRefresh.UseVisualStyleBackColor = true;
+            this.bRefresh.Click += new System.EventHandler(this.BRefresh_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 96);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 13);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Notes:";
+            // 
+            // lbNotes
+            // 
+            this.lbNotes.FormattingEnabled = true;
+            this.lbNotes.Location = new System.Drawing.Point(10, 112);
+            this.lbNotes.Name = "lbNotes";
+            this.lbNotes.Size = new System.Drawing.Size(426, 108);
+            this.lbNotes.TabIndex = 34;
+            // 
+            // cbRecover
+            // 
+            this.cbRecover.AutoSize = true;
+            this.cbRecover.Location = new System.Drawing.Point(143, 329);
+            this.cbRecover.Name = "cbRecover";
+            this.cbRecover.Size = new System.Drawing.Size(128, 17);
+            this.cbRecover.TabIndex = 18;
+            this.cbRecover.Text = "Recovering Account";
+            this.cbRecover.UseVisualStyleBackColor = true;
+            // 
+            // cbPatron
+            // 
+            this.cbPatron.AutoSize = true;
+            this.cbPatron.Location = new System.Drawing.Point(13, 306);
+            this.cbPatron.Name = "cbPatron";
+            this.cbPatron.Size = new System.Drawing.Size(77, 17);
+            this.cbPatron.TabIndex = 17;
+            this.cbPatron.Text = "CC Patron";
+            this.cbPatron.UseVisualStyleBackColor = true;
+            // 
+            // cbBanned
+            // 
+            this.cbBanned.AutoSize = true;
+            this.cbBanned.Location = new System.Drawing.Point(99, 306);
+            this.cbBanned.Name = "cbBanned";
+            this.cbBanned.Size = new System.Drawing.Size(101, 17);
+            this.cbBanned.TabIndex = 16;
+            this.cbBanned.Text = "Forum Banned";
+            this.cbBanned.UseVisualStyleBackColor = true;
+            // 
+            // cbPremium
+            // 
+            this.cbPremium.AutoSize = true;
+            this.cbPremium.Location = new System.Drawing.Point(13, 260);
+            this.cbPremium.Name = "cbPremium";
+            this.cbPremium.Size = new System.Drawing.Size(75, 17);
+            this.cbPremium.TabIndex = 33;
+            this.cbPremium.Text = "Premium?";
+            this.cbPremium.UseVisualStyleBackColor = true;
+            // 
+            // cbEditor
+            // 
+            this.cbEditor.AutoSize = true;
+            this.cbEditor.Location = new System.Drawing.Point(99, 283);
+            this.cbEditor.Name = "cbEditor";
+            this.cbEditor.Size = new System.Drawing.Size(83, 17);
+            this.cbEditor.TabIndex = 15;
+            this.cbEditor.Text = "Blog Editor";
+            this.cbEditor.UseVisualStyleBackColor = true;
+            // 
+            // cbDev
+            // 
+            this.cbDev.AutoSize = true;
+            this.cbDev.Location = new System.Drawing.Point(189, 283);
+            this.cbDev.Name = "cbDev";
+            this.cbDev.Size = new System.Drawing.Size(78, 17);
+            this.cbDev.TabIndex = 14;
+            this.cbDev.Text = "Developer";
+            this.cbDev.UseVisualStyleBackColor = true;
+            // 
+            // cbUnverified
+            // 
+            this.cbUnverified.AutoSize = true;
+            this.cbUnverified.Location = new System.Drawing.Point(13, 329);
+            this.cbUnverified.Name = "cbUnverified";
+            this.cbUnverified.Size = new System.Drawing.Size(124, 17);
+            this.cbUnverified.TabIndex = 13;
+            this.cbUnverified.Text = "Unverified Account";
+            this.cbUnverified.UseVisualStyleBackColor = true;
+            // 
+            // cbMod
+            // 
+            this.cbMod.AutoSize = true;
+            this.cbMod.Location = new System.Drawing.Point(273, 283);
+            this.cbMod.Name = "cbMod";
+            this.cbMod.Size = new System.Drawing.Size(103, 17);
+            this.cbMod.TabIndex = 12;
+            this.cbMod.Text = "CC Forum Mod";
+            this.cbMod.UseVisualStyleBackColor = true;
+            // 
+            // cbAdmin
+            // 
+            this.cbAdmin.AutoSize = true;
+            this.cbAdmin.Location = new System.Drawing.Point(13, 283);
+            this.cbAdmin.Name = "cbAdmin";
+            this.cbAdmin.Size = new System.Drawing.Size(76, 17);
+            this.cbAdmin.TabIndex = 11;
+            this.cbAdmin.Text = "CC Admin";
+            this.cbAdmin.UseVisualStyleBackColor = true;
+            // 
+            // tbFlagsRaw
+            // 
+            this.tbFlagsRaw.Location = new System.Drawing.Point(10, 50);
+            this.tbFlagsRaw.Multiline = true;
+            this.tbFlagsRaw.Name = "tbFlagsRaw";
+            this.tbFlagsRaw.ReadOnly = true;
+            this.tbFlagsRaw.Size = new System.Drawing.Size(288, 40);
+            this.tbFlagsRaw.TabIndex = 10;
+            // 
             // tbFlags
             // 
-            this.tbFlags.Location = new System.Drawing.Point(6, 17);
+            this.tbFlags.Location = new System.Drawing.Point(10, 17);
             this.tbFlags.Multiline = true;
             this.tbFlags.Name = "tbFlags";
             this.tbFlags.ReadOnly = true;
-            this.tbFlags.Size = new System.Drawing.Size(561, 39);
+            this.tbFlags.Size = new System.Drawing.Size(288, 28);
             this.tbFlags.TabIndex = 9;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.groupBox1);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(679, 472);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Accounts";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -372,25 +592,26 @@
             this.groupBox1.Controls.Add(this.lTotal);
             this.groupBox1.Controls.Add(this.tbTotal);
             this.groupBox1.Controls.Add(this.bRefreshLast5);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Location = new System.Drawing.Point(10, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(203, 216);
-            this.groupBox1.TabIndex = 23;
+            this.groupBox1.Size = new System.Drawing.Size(562, 269);
+            this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Last Five Accounts";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 161);
+            this.label2.Location = new System.Drawing.Point(215, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 13);
+            this.label2.Size = new System.Drawing.Size(150, 13);
             this.label2.TabIndex = 24;
             this.label2.Text = "Total Accounts excl Deleted:";
             // 
             // tbTotalexdel
             // 
-            this.tbTotalexdel.Location = new System.Drawing.Point(16, 177);
+            this.tbTotalexdel.BackColor = System.Drawing.Color.LightCoral;
+            this.tbTotalexdel.Location = new System.Drawing.Point(379, 79);
             this.tbTotalexdel.Name = "tbTotalexdel";
             this.tbTotalexdel.ReadOnly = true;
             this.tbTotalexdel.Size = new System.Drawing.Size(94, 22);
@@ -406,7 +627,7 @@
             this.bRawLast5.Text = "Raw";
             this.toolTip1.SetToolTip(this.bRawLast5, "Open the last five accounts in raw JSON.");
             this.bRawLast5.UseVisualStyleBackColor = true;
-            this.bRawLast5.Click += new System.EventHandler(this.bRawLast5_Click);
+            this.bRawLast5.Click += new System.EventHandler(this.BRawLast5_Click_1);
             // 
             // tbLast5
             // 
@@ -421,15 +642,15 @@
             // lTotal
             // 
             this.lTotal.AutoSize = true;
-            this.lTotal.Location = new System.Drawing.Point(13, 139);
+            this.lTotal.Location = new System.Drawing.Point(215, 51);
             this.lTotal.Name = "lTotal";
-            this.lTotal.Size = new System.Drawing.Size(84, 13);
+            this.lTotal.Size = new System.Drawing.Size(85, 13);
             this.lTotal.TabIndex = 6;
             this.lTotal.Text = "Total Accounts:";
             // 
             // tbTotal
             // 
-            this.tbTotal.Location = new System.Drawing.Point(103, 136);
+            this.tbTotal.Location = new System.Drawing.Point(305, 48);
             this.tbTotal.Name = "tbTotal";
             this.tbTotal.ReadOnly = true;
             this.tbTotal.Size = new System.Drawing.Size(94, 22);
@@ -444,7 +665,100 @@
             this.bRefreshLast5.Text = "Refresh";
             this.toolTip1.SetToolTip(this.bRefreshLast5, "Refresh the last five accounts list.");
             this.bRefreshLast5.UseVisualStyleBackColor = true;
-            this.bRefreshLast5.Click += new System.EventHandler(this.bRefreshLast5_Click);
+            this.bRefreshLast5.Click += new System.EventHandler(this.BRefreshLast5_Click_1);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.groupBox5);
+            this.tabPage5.Controls.Add(this.groupBox4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(679, 472);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Player Avatar/Skin";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.bDloadDefault);
+            this.groupBox5.Controls.Add(this.btnDload);
+            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.pictureBox2);
+            this.groupBox5.Location = new System.Drawing.Point(343, 97);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(200, 214);
+            this.groupBox5.TabIndex = 28;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Skin";
+            // 
+            // btnDload
+            // 
+            this.btnDload.Location = new System.Drawing.Point(119, 181);
+            this.btnDload.Name = "btnDload";
+            this.btnDload.Size = new System.Drawing.Size(75, 23);
+            this.btnDload.TabIndex = 2;
+            this.btnDload.Text = "Download";
+            this.btnDload.UseVisualStyleBackColor = true;
+            this.btnDload.Click += new System.EventHandler(this.BtnDload_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 181);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Refresh";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(50, 21);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(90, 93);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnDload2);
+            this.groupBox4.Controls.Add(this.btnRefreshSkin);
+            this.groupBox4.Controls.Add(this.pictureBox1);
+            this.groupBox4.Location = new System.Drawing.Point(73, 97);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(181, 214);
+            this.groupBox4.TabIndex = 27;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Avatar";
+            // 
+            // btnDload2
+            // 
+            this.btnDload2.Location = new System.Drawing.Point(100, 185);
+            this.btnDload2.Name = "btnDload2";
+            this.btnDload2.Size = new System.Drawing.Size(75, 23);
+            this.btnDload2.TabIndex = 3;
+            this.btnDload2.Text = "Download";
+            this.btnDload2.UseVisualStyleBackColor = true;
+            this.btnDload2.Click += new System.EventHandler(this.BtnDload2_Click);
+            // 
+            // btnRefreshSkin
+            // 
+            this.btnRefreshSkin.Enabled = false;
+            this.btnRefreshSkin.Location = new System.Drawing.Point(6, 185);
+            this.btnRefreshSkin.Name = "btnRefreshSkin";
+            this.btnRefreshSkin.Size = new System.Drawing.Size(73, 23);
+            this.btnRefreshSkin.TabIndex = 1;
+            this.btnRefreshSkin.Text = "Refresh";
+            this.toolTip1.SetToolTip(this.btnRefreshSkin, "Refresh the selected user\'s skin.");
+            this.btnRefreshSkin.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(25, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(132, 142);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // tabPage2
             // 
@@ -474,7 +788,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(586, 475);
+            this.tabPage2.Size = new System.Drawing.Size(679, 472);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Servers";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -696,7 +1010,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(586, 475);
+            this.tabPage3.Size = new System.Drawing.Size(679, 472);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Raw Data";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -722,7 +1036,7 @@
             this.llSRaw.TabIndex = 2;
             this.llSRaw.TabStop = true;
             this.llSRaw.Text = "Server Data";
-            this.llSRaw.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlSRaw_LinkClicked);
+            this.llSRaw.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lSRaw_LinkClicked);
             // 
             // rtbSRaw
             // 
@@ -742,6 +1056,76 @@
             this.rtbURaw.TabIndex = 0;
             this.rtbURaw.Text = "";
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.serverstable);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(679, 472);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Servers List";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // serverstable
+            // 
+            this.serverstable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader8,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.serverstable.HideSelection = false;
+            this.serverstable.Location = new System.Drawing.Point(6, 6);
+            this.serverstable.Name = "serverstable";
+            this.serverstable.Size = new System.Drawing.Size(667, 442);
+            this.serverstable.TabIndex = 3;
+            this.serverstable.UseCompatibleStateImageBehavior = false;
+            this.serverstable.View = System.Windows.Forms.View.Details;
+            this.serverstable.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.Serverstable_ColumnClick_1);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 119;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Players";
+            this.columnHeader2.Width = 68;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Max Players";
+            this.columnHeader3.Width = 73;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Software";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Uptime";
+            this.columnHeader4.Width = 70;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Country";
+            this.columnHeader5.Width = 65;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Featured";
+            this.columnHeader6.Width = 64;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Hash";
+            this.columnHeader7.Width = 73;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.bFServers);
@@ -749,44 +1133,45 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(586, 475);
+            this.tabPage4.Size = new System.Drawing.Size(679, 472);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Servers List";
+            this.tabPage4.Text = "Raw Servers List";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // bFServers
             // 
-            this.bFServers.Location = new System.Drawing.Point(484, 19);
+            this.bFServers.Location = new System.Drawing.Point(248, 443);
             this.bFServers.Name = "bFServers";
             this.bFServers.Size = new System.Drawing.Size(96, 23);
             this.bFServers.TabIndex = 1;
             this.bFServers.Text = "Fetch Servers";
             this.bFServers.UseVisualStyleBackColor = true;
-            this.bFServers.Click += new System.EventHandler(this.BFServers_Click);
+            this.bFServers.Click += new System.EventHandler(this.bFServers_Click);
             // 
             // rtSList
             // 
-            this.rtSList.Location = new System.Drawing.Point(22, 19);
+            this.rtSList.Location = new System.Drawing.Point(22, 6);
             this.rtSList.Name = "rtSList";
             this.rtSList.ReadOnly = true;
-            this.rtSList.Size = new System.Drawing.Size(456, 378);
+            this.rtSList.Size = new System.Drawing.Size(558, 431);
             this.rtSList.TabIndex = 0;
             this.rtSList.Text = "";
             // 
-            // tbFlagsRaw
+            // bDloadDefault
             // 
-            this.tbFlagsRaw.Location = new System.Drawing.Point(6, 62);
-            this.tbFlagsRaw.Multiline = true;
-            this.tbFlagsRaw.Name = "tbFlagsRaw";
-            this.tbFlagsRaw.ReadOnly = true;
-            this.tbFlagsRaw.Size = new System.Drawing.Size(561, 40);
-            this.tbFlagsRaw.TabIndex = 10;
+            this.bDloadDefault.Location = new System.Drawing.Point(65, 120);
+            this.bDloadDefault.Name = "bDloadDefault";
+            this.bDloadDefault.Size = new System.Drawing.Size(75, 43);
+            this.bDloadDefault.TabIndex = 3;
+            this.bDloadDefault.Text = "Download Default";
+            this.bDloadDefault.UseVisualStyleBackColor = true;
+            this.bDloadDefault.Click += new System.EventHandler(this.BDloadDefault_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 515);
+            this.ClientSize = new System.Drawing.Size(711, 506);
             this.Controls.Add(this.tabs);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -797,20 +1182,26 @@
             this.Text = "ClassiCube API";
             this.tabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -821,9 +1212,6 @@
 		private System.Windows.Forms.TabControl tabs;
 		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.TabPage tabPage2;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.TextBox tbLast5;
-		private System.Windows.Forms.TextBox tbTotal;
 		private System.Windows.Forms.TextBox tbSoftware;
 		private System.Windows.Forms.TextBox tbUptime;
 		private System.Windows.Forms.TextBox tbPlayers;
@@ -831,20 +1219,16 @@
 		private System.Windows.Forms.ComboBox cbServer;
 		private System.Windows.Forms.TextBox txMaxPlayers;
 		private System.Windows.Forms.TextBox tbFlags;
-		private System.Windows.Forms.Button bRefreshLast5;
-		private System.Windows.Forms.Label lTotal;
 		private System.Windows.Forms.Label lof;
 		private System.Windows.Forms.Label lPlayers;
 		private System.Windows.Forms.Label lSoftware;
 		private System.Windows.Forms.Label lUptime;
 		private System.Windows.Forms.Label lServer;
-        private System.Windows.Forms.Button bRawLast5;
         private System.Windows.Forms.Button bRawServer;
         private System.Windows.Forms.Label lHash;
         private System.Windows.Forms.TextBox tbHash;
         private System.Windows.Forms.Button bOpenHash;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button bRawPlayer;
         private System.Windows.Forms.Label lRegistered;
@@ -856,14 +1240,10 @@
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Button bLookup;
         private System.Windows.Forms.TextBox tBSearch;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnRefreshSkin;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox tbAccSince;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbTotalexdel;
         private System.Windows.Forms.TextBox tbAccSinceExclDel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbCountry;
@@ -885,6 +1265,53 @@
         private System.Windows.Forms.RichTextBox rtSList;
         private System.Windows.Forms.Button bFServers;
         private System.Windows.Forms.TextBox tbFlagsRaw;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button btnDload;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnRefreshSkin;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnDload2;
+        private System.Windows.Forms.CheckBox cbPremium;
+        private System.Windows.Forms.CheckBox cbEditor;
+        private System.Windows.Forms.CheckBox cbDev;
+        private System.Windows.Forms.CheckBox cbUnverified;
+        private System.Windows.Forms.CheckBox cbMod;
+        private System.Windows.Forms.CheckBox cbAdmin;
+        private System.Windows.Forms.CheckBox cbBanned;
+        private System.Windows.Forms.CheckBox cbPatron;
+        private System.Windows.Forms.CheckBox cbRecover;
+        private System.Windows.Forms.TextBox tbAdjID;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button bName;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.ListView serverstable;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbTotalexdel;
+        private System.Windows.Forms.Button bRawLast5;
+        private System.Windows.Forms.TextBox tbLast5;
+        private System.Windows.Forms.Label lTotal;
+        private System.Windows.Forms.TextBox tbTotal;
+        private System.Windows.Forms.Button bRefreshLast5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ListBox lbNotes;
+        private System.Windows.Forms.TextBox tbESTRegistered;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbTimeNow;
+        private System.Windows.Forms.Button bRefresh;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Button bDloadDefault;
     }
 }
 
