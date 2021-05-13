@@ -1,6 +1,6 @@
 # CCapi
 ClassiCube.net api viewer
 
-Download compiled program [**`HERE`**](http://123dmwm.tk/Random/CCapi.zip) - (Always up to date with latest WORKING code - Latest: December 2, 2015)
+Download compiled program [**`HERE`**](http://123dmwm.com/Random/CCapi.zip) - (Always up to date with latest WORKING code - Latest: January 8th, 2020)
 
-![Preview](http://123dmwm.tk/I/36.png)
+![Preview](https://123dmwm.com/I/n0v9rdz.png)

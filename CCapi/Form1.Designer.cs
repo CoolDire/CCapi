@@ -41,13 +41,18 @@
             this.bName = new System.Windows.Forms.Button();
             this.tbAdjID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.bSkinDownload = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbRegistered = new System.Windows.Forms.TextBox();
+            this.cbUTC = new System.Windows.Forms.CheckBox();
+            this.dtpRegistered = new System.Windows.Forms.DateTimePicker();
             this.bRawPlayer = new System.Windows.Forms.Button();
             this.lRegistered = new System.Windows.Forms.Label();
             this.lID = new System.Windows.Forms.Label();
             this.lUserName = new System.Windows.Forms.Label();
-            this.bIDLookup = new System.Windows.Forms.Button();
             this.tbUserName = new System.Windows.Forms.TextBox();
-            this.tbRegistered = new System.Windows.Forms.TextBox();
             this.tbID = new System.Windows.Forms.TextBox();
             this.bLookup = new System.Windows.Forms.Button();
             this.tBSearch = new System.Windows.Forms.TextBox();
@@ -65,6 +70,8 @@
             this.cbMod = new System.Windows.Forms.CheckBox();
             this.cbAdmin = new System.Windows.Forms.CheckBox();
             this.tbFlagsRaw = new System.Windows.Forms.TextBox();
+            this.tbForumTitle = new System.Windows.Forms.TextBox();
+            this.lForumTitle = new System.Windows.Forms.Label();
             this.tbFlags = new System.Windows.Forms.TextBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -89,6 +96,8 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbCountryFull = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.pbCountry = new System.Windows.Forms.PictureBox();
             this.tbFeatured = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbCountry = new System.Windows.Forms.TextBox();
@@ -136,6 +145,9 @@
             this.tabPage7.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCountry)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -193,6 +205,26 @@
             this.tbTimeNow.Name = "tbTimeNow";
             this.tbTimeNow.Size = new System.Drawing.Size(127, 40);
             this.tbTimeNow.TabIndex = 29;
+            this.groupBox4.Controls.Add(this.bSkinDownload);
+            this.groupBox4.Controls.Add(this.pictureBox1);
+            this.groupBox4.Location = new System.Drawing.Point(443, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(138, 175);
+            this.groupBox4.TabIndex = 26;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Skin";
+            // 
+            // bSkinDownload
+            // 
+            this.bSkinDownload.Enabled = false;
+            this.bSkinDownload.Location = new System.Drawing.Point(5, 146);
+            this.bSkinDownload.Name = "bSkinDownload";
+            this.bSkinDownload.Size = new System.Drawing.Size(128, 23);
+            this.bSkinDownload.TabIndex = 1;
+            this.bSkinDownload.Text = "Download Skin";
+            this.toolTip1.SetToolTip(this.bSkinDownload, "Download the selected user\'s skin.");
+            this.bSkinDownload.UseVisualStyleBackColor = true;
+            this.bSkinDownload.Click += new System.EventHandler(this.bSkinDownload_Click);
             // 
             // groupBox6
             // 
@@ -268,13 +300,14 @@
             this.groupBox3.Controls.Add(this.bName);
             this.groupBox3.Controls.Add(this.tbAdjID);
             this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.tbRegistered);
+            this.groupBox3.Controls.Add(this.cbUTC);
+            this.groupBox3.Controls.Add(this.dtpRegistered);
             this.groupBox3.Controls.Add(this.bRawPlayer);
             this.groupBox3.Controls.Add(this.lRegistered);
             this.groupBox3.Controls.Add(this.lID);
             this.groupBox3.Controls.Add(this.lUserName);
-            this.groupBox3.Controls.Add(this.bIDLookup);
             this.groupBox3.Controls.Add(this.tbUserName);
-            this.groupBox3.Controls.Add(this.tbRegistered);
             this.groupBox3.Controls.Add(this.tbID);
             this.groupBox3.Controls.Add(this.bLookup);
             this.groupBox3.Controls.Add(this.tBSearch);
@@ -326,8 +359,45 @@
             // 
             this.bRawPlayer.Location = new System.Drawing.Point(166, 272);
             this.bRawPlayer.Margin = new System.Windows.Forms.Padding(2);
+            // tbRegistered
+            // 
+            this.tbRegistered.Location = new System.Drawing.Point(130, 123);
+            this.tbRegistered.Name = "tbRegistered";
+            this.tbRegistered.ReadOnly = true;
+            this.tbRegistered.Size = new System.Drawing.Size(88, 20);
+            this.tbRegistered.TabIndex = 36;
+            this.tbRegistered.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // cbUTC
+            // 
+            this.cbUTC.AutoSize = true;
+            this.cbUTC.Checked = true;
+            this.cbUTC.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbUTC.Location = new System.Drawing.Point(76, 125);
+            this.cbUTC.Name = "cbUTC";
+            this.cbUTC.Size = new System.Drawing.Size(48, 17);
+            this.cbUTC.TabIndex = 35;
+            this.cbUTC.Text = "UTC";
+            this.cbUTC.UseVisualStyleBackColor = true;
+            this.cbUTC.CheckedChanged += new System.EventHandler(this.cbUTC_CheckedChanged);
+            // 
+            // dtpRegistered
+            // 
+            this.dtpRegistered.CustomFormat = "dddd MMMM d, yyyy  h:mm:ss tt";
+            this.dtpRegistered.Enabled = false;
+            this.dtpRegistered.Location = new System.Drawing.Point(6, 99);
+            this.dtpRegistered.MinDate = new System.DateTime(2013, 8, 13, 0, 0, 0, 0);
+            this.dtpRegistered.Name = "dtpRegistered";
+            this.dtpRegistered.Size = new System.Drawing.Size(213, 20);
+            this.dtpRegistered.TabIndex = 32;
+            this.dtpRegistered.Value = new System.DateTime(2020, 1, 8, 0, 0, 0, 0);
+            this.dtpRegistered.ValueChanged += new System.EventHandler(this.dtpRegistered_Changed);
+            // 
+            // bRawPlayer
+            // 
+            this.bRawPlayer.Location = new System.Drawing.Point(178, 149);
             this.bRawPlayer.Name = "bRawPlayer";
-            this.bRawPlayer.Size = new System.Drawing.Size(37, 23);
+            this.bRawPlayer.Size = new System.Drawing.Size(40, 20);
             this.bRawPlayer.TabIndex = 32;
             this.bRawPlayer.Text = "Raw";
             this.toolTip1.SetToolTip(this.bRawPlayer, "Open the account\'s info in raw JSON.");
@@ -338,6 +408,7 @@
             // 
             this.lRegistered.AutoSize = true;
             this.lRegistered.Location = new System.Drawing.Point(16, 118);
+            this.lRegistered.Location = new System.Drawing.Point(6, 83);
             this.lRegistered.Name = "lRegistered";
             this.lRegistered.Size = new System.Drawing.Size(65, 13);
             this.lRegistered.TabIndex = 31;
@@ -347,6 +418,7 @@
             // 
             this.lID.AutoSize = true;
             this.lID.Location = new System.Drawing.Point(125, 77);
+            this.lID.Location = new System.Drawing.Point(162, 44);
             this.lID.Name = "lID";
             this.lID.Size = new System.Drawing.Size(21, 13);
             this.lID.TabIndex = 30;
@@ -356,6 +428,7 @@
             // 
             this.lUserName.AutoSize = true;
             this.lUserName.Location = new System.Drawing.Point(16, 77);
+            this.lUserName.Location = new System.Drawing.Point(6, 44);
             this.lUserName.Name = "lUserName";
             this.lUserName.Size = new System.Drawing.Size(61, 13);
             this.lUserName.TabIndex = 29;
@@ -375,6 +448,9 @@
             // tbUserName
             // 
             this.tbUserName.Location = new System.Drawing.Point(18, 93);
+            // tbUserName
+            // 
+            this.tbUserName.Location = new System.Drawing.Point(6, 60);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.ReadOnly = true;
             this.tbUserName.Size = new System.Drawing.Size(94, 22);
@@ -392,6 +468,9 @@
             // tbID
             // 
             this.tbID.Location = new System.Drawing.Point(128, 93);
+            // tbID
+            // 
+            this.tbID.Location = new System.Drawing.Point(165, 60);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(54, 22);
@@ -430,6 +509,13 @@
             this.groupBox2.Controls.Add(this.cbMod);
             this.groupBox2.Controls.Add(this.cbAdmin);
             this.groupBox2.Controls.Add(this.tbFlagsRaw);
+            this.tBSearch.Text = "Player Name/ID";
+            this.tBSearch.GotFocus += new System.EventHandler(this.tBSearch_GotFocus);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tbForumTitle);
+            this.groupBox2.Controls.Add(this.lForumTitle);
             this.groupBox2.Controls.Add(this.tbFlags);
             this.groupBox2.Location = new System.Drawing.Point(232, 11);
             this.groupBox2.Name = "groupBox2";
@@ -571,6 +657,31 @@
             this.tbFlags.Name = "tbFlags";
             this.tbFlags.ReadOnly = true;
             this.tbFlags.Size = new System.Drawing.Size(288, 28);
+            // tbForumTitle
+            // 
+            this.tbForumTitle.Location = new System.Drawing.Point(74, 43);
+            this.tbForumTitle.Multiline = true;
+            this.tbForumTitle.Name = "tbForumTitle";
+            this.tbForumTitle.ReadOnly = true;
+            this.tbForumTitle.Size = new System.Drawing.Size(494, 20);
+            this.tbForumTitle.TabIndex = 33;
+            // 
+            // lForumTitle
+            // 
+            this.lForumTitle.AutoSize = true;
+            this.lForumTitle.Location = new System.Drawing.Point(6, 46);
+            this.lForumTitle.Name = "lForumTitle";
+            this.lForumTitle.Size = new System.Drawing.Size(62, 13);
+            this.lForumTitle.TabIndex = 34;
+            this.lForumTitle.Text = "Forum Title:";
+            // 
+            // tbFlags
+            // 
+            this.tbFlags.Location = new System.Drawing.Point(6, 19);
+            this.tbFlags.Multiline = true;
+            this.tbFlags.Name = "tbFlags";
+            this.tbFlags.ReadOnly = true;
+            this.tbFlags.Size = new System.Drawing.Size(562, 20);
             this.tbFlags.TabIndex = 9;
             // 
             // tabPage7
@@ -826,10 +937,40 @@
             this.label8.Size = new System.Drawing.Size(102, 13);
             this.label8.TabIndex = 31;
             this.label8.Text = "Country Full Name";
+            this.groupBox6.Controls.Add(this.pbCountry);
+            this.groupBox6.Controls.Add(this.tbFeatured);
+            this.groupBox6.Controls.Add(this.lFeatured);
+            this.groupBox6.Controls.Add(this.tbCountry);
+            this.groupBox6.Controls.Add(this.lCountry);
+            this.groupBox6.Controls.Add(this.tbUptime);
+            this.groupBox6.Controls.Add(this.lUptime);
+            this.groupBox6.Controls.Add(this.bRefreshServers);
+            this.groupBox6.Controls.Add(this.bRawServer);
+            this.groupBox6.Controls.Add(this.bOpenHash);
+            this.groupBox6.Controls.Add(this.tbSoftware);
+            this.groupBox6.Controls.Add(this.lHash);
+            this.groupBox6.Controls.Add(this.lSoftware);
+            this.groupBox6.Controls.Add(this.tbHash);
+            this.groupBox6.Location = new System.Drawing.Point(6, 82);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(574, 176);
+            this.groupBox6.TabIndex = 28;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Server Info";
+            // 
+            // pbCountry
+            // 
+            this.pbCountry.Location = new System.Drawing.Point(445, 30);
+            this.pbCountry.Name = "pbCountry";
+            this.pbCountry.Size = new System.Drawing.Size(32, 22);
+            this.pbCountry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCountry.TabIndex = 31;
+            this.pbCountry.TabStop = false;
             // 
             // tbFeatured
             // 
             this.tbFeatured.Location = new System.Drawing.Point(9, 293);
+            this.tbFeatured.Location = new System.Drawing.Point(391, 80);
             this.tbFeatured.Name = "tbFeatured";
             this.tbFeatured.ReadOnly = true;
             this.tbFeatured.Size = new System.Drawing.Size(129, 22);
@@ -843,6 +984,12 @@
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 29;
             this.label7.Text = "Featured";
+            this.lFeatured.AutoSize = true;
+            this.lFeatured.Location = new System.Drawing.Point(393, 64);
+            this.lFeatured.Name = "lFeatured";
+            this.lFeatured.Size = new System.Drawing.Size(52, 13);
+            this.lFeatured.TabIndex = 29;
+            this.lFeatured.Text = "Featured:";
             // 
             // tbCountry
             // 
@@ -850,6 +997,7 @@
             this.tbCountry.Name = "tbCountry";
             this.tbCountry.ReadOnly = true;
             this.tbCountry.Size = new System.Drawing.Size(129, 22);
+            this.tbCountry.Size = new System.Drawing.Size(48, 20);
             this.tbCountry.TabIndex = 28;
             // 
             // label4
@@ -1193,6 +1341,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCountry)).EndInit();
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
@@ -1234,12 +1386,12 @@
         private System.Windows.Forms.Label lRegistered;
         private System.Windows.Forms.Label lID;
         private System.Windows.Forms.Label lUserName;
-        private System.Windows.Forms.Button bIDLookup;
         private System.Windows.Forms.TextBox tbUserName;
-        private System.Windows.Forms.TextBox tbRegistered;
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Button bLookup;
         private System.Windows.Forms.TextBox tBSearch;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button bSkinDownload;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox tbAccSince;
@@ -1312,6 +1464,13 @@
         private System.Windows.Forms.Button bRefresh;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Button bDloadDefault;
+        private System.Windows.Forms.Label lCountry;
+        private System.Windows.Forms.Label lForumTitle;
+        private System.Windows.Forms.TextBox tbForumTitle;
+        private System.Windows.Forms.DateTimePicker dtpRegistered;
+        private System.Windows.Forms.CheckBox cbUTC;
+        private System.Windows.Forms.TextBox tbRegistered;
+        private System.Windows.Forms.PictureBox pbCountry;
     }
 }
 

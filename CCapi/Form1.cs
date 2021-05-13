@@ -5,7 +5,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Jason;
 using Launcher;
@@ -15,11 +14,11 @@ namespace CCapi {
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
-            getLastFive();
-            DateTime now = DateTime.Now.ToLocalTime();
-            tbTimeNow.Text = now.ToLongDateString() + " at " + now.ToShortTimeString();
+            getOverallStats();
+            setRegisteredDateTime(DateTime.Now);
         }
         #region Players
+        private DateTime userRegisteredDate = DateTime.Now;
         private void bLookup_Click(object sender, EventArgs e) {
             lbNotes.Items.Clear();
             tabPage1.BackColor = Color.White;
@@ -50,9 +49,35 @@ namespace CCapi {
 
         // Gets a players info
         private void getPlayer(byte function) {
+            getPlayer();
+        }
+
+        private void tBSearch_GotFocus(object sender, EventArgs e) {
+            if (tBSearch.Text == "Player Name/ID") {
+                tBSearch.Text = "";
+            }
+        }
+
+        private void bSkinDownload_Click(object sender, EventArgs e) {
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://classicube.s3.amazonaws.com/skins/" + tbUserName.Text + ".png");
+            request.Method = "HEAD";
+            try {
+                request.GetResponse();
+                System.Diagnostics.Process.Start("https://classicube.s3.amazonaws.com/skins/" + tbUserName.Text + ".png");
+            }
+            catch {
+                MessageBox.Show("This player has no custom skin!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        private void tBSearch_Key(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter) {
+                getPlayer();
+            }
+        }
+        private void getPlayer() {
             string name = tBSearch.Text;
             JsonObject result = null;
-            string api;
 
             if (function == 2) {
                 api = "id/";
@@ -101,6 +126,12 @@ namespace CCapi {
                         return;
                     }
                     break;
+            result = GetUserData("player/" + name);
+            if (result == null) return;
+            
+            if (result.Get("error") == Constants.NotFound) {
+                MessageBox.Show("No player found by that username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             JsonObject pcount = null;
@@ -136,6 +167,13 @@ namespace CCapi {
             //double yreg = (int)(reg.TotalDays / 365);
             //double mreg = ((reg.TotalDays / 365) / 12 * 12);
 
+            userRegisteredDate = registered;
+            dtpRegistered.Enabled = true;
+            setRegisteredDateTime(registered);
+            tbForumTitle.Text = result.Get("forum_title");
+            string flagsResult = result.Get("flags");
+            string flags = "";
+            
             foreach (var kvp in Constants.UserFlags) {
                 if (flagsResult.IndexOf(kvp.Key) >= 0)
                     flags += kvp.Value + " - ";
@@ -248,6 +286,9 @@ namespace CCapi {
                 lbNotes.Items.Add("This is a regular Classicube User");
             }
 
+            tbFlags.Text = flags != "" ? flags.Remove(flags.Length - 2, 2) + " " + flagsResult : flags;
+            pictureBox1.Image = getAvatar(result.Get("username"));
+            bSkinDownload.Enabled = true;
         }
 
         // Gets User Data from the API
@@ -278,25 +319,46 @@ namespace CCapi {
             try
             {
                 Stream stream = new WebClient().OpenRead("https://classicube.s3.amazonaws.com/skin/" + name + ".png");
+        private void setRegisteredDateTime(DateTime date) {            
+            if (tbUserName.Text == "") date = DateTime.Now;
+            if (cbUTC.Checked) date = date.ToUniversalTime();
+            if (dtpRegistered.Value != date) {
+                if (dtpRegistered.Enabled) {
+                    dtpRegistered.MaxDate = cbUTC.Enabled ? DateTime.UtcNow : DateTime.Now;
+                    dtpRegistered.Value = date;
+                }
+                tbRegistered.Text = date.ToLongTimeString();
+            }
+        }
+        private void dtpRegistered_Changed(object sender, EventArgs e) {
+            setRegisteredDateTime(userRegisteredDate);
+        }
+        private void cbUTC_CheckedChanged(object sender, EventArgs e) {
+            setRegisteredDateTime(userRegisteredDate);
+        }
+
+        private Image getAvatar(string name) {
+            try {
+                Stream stream = new WebClient().OpenRead("https://classicube.s3.amazonaws.com/face/" + name + ".png");
                 return Image.FromStream(stream);
             } catch {
                 MessageBox.Show("Failed to retrieve skin. ClassiCube.net might be down!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return null;
             }
         }
-
-        // Gets the Default Skin from the skin server
-
-        private Image getDefaultSkin()
-        {
-                Stream stream = new WebClient().OpenRead("https://www.classicube.net/static/default.png");
+        private Image getCountry(string name) {
+            try {
+                Stream stream = new WebClient().OpenRead("https://static.classicube.net/img/flags/" + name.ToLower() + ".png");
                 return Image.FromStream(stream);
+            }
+            catch {
+                MessageBox.Show("Failed to retrieve skin. ClassiCube.net might be down!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
         }
 
-        // Gets the Last 5 Accounts registered
-        private void getLastFive() {
+        private void getOverallStats() {
             JsonObject result = null;
-            Regex nan = new Regex("[^a-zA-Z0-9_.,]");
             try {
                 result = JsonObject.Parse((new WebClient()).DownloadString("https://www.classicube.net/api/players"));
                 tbLast5.Text = nan.Replace(result.Get("lastfive"), "").Replace(",", Environment.NewLine);
@@ -305,29 +367,14 @@ namespace CCapi {
                 int realpcount = plcount + modifier;
                 tbTotal.Text = realpcount.ToString();
                 tbTotalexdel.Text = result.Get("playercount");
+                tbTotal.Text = result.Get("playercount");
             } catch {
                 MessageBox.Show("Failed to retrieve last five accounts. ClassiCube.net might be down!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
-        private void BRawLast5_Click_1(object sender, EventArgs e) {
-
-        }
-        private void BRefresh_Click(object sender, EventArgs e)
-        {
-            lbNotes.Items.Clear();
-            tabPage1.BackColor = Color.White;
-            DateTime now = DateTime.Now.ToLocalTime();
-            tbTimeNow.Text = now.ToLongDateString() + " at " + now.ToShortTimeString();
-            getPlayer(4);
-        }
-        private void LlURaw_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            string name = tBSearch.Text;
-            System.Diagnostics.Process.Start("https://www.classicube.net/api/player/" + name);
-        }
-        private void BRefreshLast5_Click_1(object sender, EventArgs e) {
-           getLastFive();
+        private void bRefreshLast5_Click(object sender, EventArgs e) {
+            getOverallStats();
         }
         #endregion
         #region Servers
@@ -352,10 +399,10 @@ namespace CCapi {
             txMaxPlayers.Text = "";
             tbUptime.Text = "";
             tbSoftware.Text = "";
-            tbCountry.Text = "";
-            tbCountryFull.Text = "";
-            tbName.Text = "";
             tbFeatured.Text = "";
+            tbHash.Text = "";
+            tbCountry.Text = "";
+            pbCountry.Image = null;
             for (int i = 0; i < servers.Count; i++) {
                 cbServer.Items.Add(servers[i].Name);
             }
@@ -376,7 +423,7 @@ namespace CCapi {
                 servers.Add(new ccServer(
                     (string)pairs["hash"], (string)pairs["name"],
                     (string)pairs["players"], (string)pairs["maxplayers"],
-                     (string)pairs["uptime"], (string)pairs["software"],
+                    (string)pairs["uptime"], (string)pairs["software"],
                     (string)pairs["country_abbr"], (bool)pairs["featured"]));
             }
             return servers;
@@ -408,20 +455,8 @@ namespace CCapi {
             tbSoftware.Text = servers[cbServer.SelectedIndex].Software;
             tbHash.Text = servers[cbServer.SelectedIndex].Hash;
             tbCountry.Text = servers[cbServer.SelectedIndex].Country;
+            pbCountry.Image = getCountry(servers[cbServer.SelectedIndex].Country);
             tbFeatured.Text = servers[cbServer.SelectedIndex].Featured.ToString();
-            rtbSRaw.Text = servers[cbServer.SelectedIndex].Dump();
-            llSRaw.Text = "Data for " + servers[cbServer.SelectedIndex].Name; 
-            
-                        
-            string countryresult = servers[cbServer.SelectedIndex].Country;
-            string country = countryresult + " - ";
-
-            foreach (var kvp in Constants.Country)
-            {
-                if (countryresult.IndexOf(kvp.Key) >= 0)
-                    country += kvp.Value + " - ";
-            }
-            tbCountryFull.Text = country.Remove(country.Length - 2, 2);
             return;
         }
 
@@ -444,7 +479,12 @@ namespace CCapi {
         }
 
         private void bRawPlayer_Click(object sender, EventArgs e) {
-            System.Diagnostics.Process.Start("https://www.classicube.net/api/id/" + tbID.Text);
+            System.Diagnostics.Process.Start("https://www.classicube.net/api/player/" + tBSearch.Text);
+        }
+
+        private void bDownloadSkin_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.classicube.net/skins/" + tbUserName.Text + ".png");
         }
 
         private void bRawServer_Click(object sender, EventArgs e) {
